@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ site.title }}{% endblock %}</title>
+  <meta name="description" content="{{ site.tagline }}">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          {% for item in nav %}
+          <li><a href="{{ item.href }}" class="{{ 'active' if active_page == item.href else '' }}">{{ item.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Projects</a></li>
+          <li><a href="about.html" class="">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Blue team &middot; Tool dev &middot; White hat</span>
+    <h1>Cybersecurity Lab</h1>
+    <p class="hero-lede">A hands-on log of cybersecurity projects, from home network defense to writing real cryptography in Python. Everything here is either working code you can read, or a documented write-up of something actually built and tested -- nothing is aspirational marketing copy.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>🛡️ Defensive Security (Blue Team)</h2>
+    </div>
+    <div class="project-grid">
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">📊</span>
+          <span class="badge badge-coming-soon">Coming Soon</span>
+        </div>
+        <h3>Log Analysis Dashboard</h3>
+        <p>A dashboard that parses system logs and visually flags failed login attempts and other suspicious patterns.</p>
+        <div class="tag-row">
+          <span class="tag">Blue team</span>
+          <span class="tag">Log analysis</span>
+        </div>
+      </div>
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">📡</span>
+          <span class="badge badge-hands-on">In Progress (hands-on)</span>
+        </div>
+        <h3>Home Lab Network Monitor</h3>
+        <p>A Raspberry Pi running Zeek/Wireshark on the home network, alerting on unusual traffic or unrecognized devices. Write-up coming once it&#39;s set up.</p>
+        <div class="tag-row">
+          <span class="tag">Zeek</span>
+          <span class="tag">Raspberry Pi</span>
+          <span class="tag">Home lab</span>
+        </div>
+      </div>
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">🧱</span>
+          <span class="badge badge-hands-on">In Progress (hands-on)</span>
+        </div>
+        <h3>Custom Firewall (pfSense/OPNsense)</h3>
+        <p>A dedicated open-source firewall segmenting the home network, isolating IoT devices from personal computers. Write-up coming once it&#39;s set up.</p>
+        <div class="tag-row">
+          <span class="tag">pfSense</span>
+          <span class="tag">Network segmentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>💻 Security Tool Development</h2>
+    </div>
+    <div class="project-grid">
+      <a class="card project-card" href="password-manager.html">
+        <div class="card-top">
+          <span class="card-icon">🔐</span>
+          <span class="badge badge-live">Live</span>
+        </div>
+        <h3>Local Password Manager</h3>
+        <p>A command-line password manager written in Python with real AES-256-GCM encryption behind a master password -- no plaintext ever touches disk.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">AES-256</span>
+          <span class="tag">Cryptography</span>
+        </div>
+      </a>
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">📡</span>
+          <span class="badge badge-coming-soon">Coming Soon</span>
+        </div>
+        <h3>Packet Sniffer / Scanner</h3>
+        <p>A lightweight network scanner using Python and Scapy to identify open ports and active devices on a local network.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">Scapy</span>
+          <span class="tag">Networking</span>
+        </div>
+      </div>
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">💬</span>
+          <span class="badge badge-coming-soon">Coming Soon</span>
+        </div>
+        <h3>Encrypted Chat Program</h3>
+        <p>A peer-to-peer chat app using RSA public/private key pairs for end-to-end encryption, so messages can&#39;t be read in transit.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">RSA</span>
+          <span class="tag">E2EE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>🌐 Offensive Security &amp; Education (White Hat)</h2>
+    </div>
+    <div class="project-grid">
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">🎣</span>
+          <span class="badge badge-coming-soon">Coming Soon</span>
+        </div>
+        <h3>Phishing Simulator (Sandbox Demo)</h3>
+        <p>A fully synthetic demo of a phishing-awareness tool -- fake inbox, fake test recipients, real click-tracking dashboard. No real email is ever sent to a real person by this demo.</p>
+        <div class="tag-row">
+          <span class="tag">Security awareness</span>
+          <span class="tag">Sandbox only</span>
+        </div>
+      </div>
+      <div class="card project-card is-disabled">
+        <div class="card-top">
+          <span class="card-icon">📝</span>
+          <span class="badge badge-hands-on">In Progress (hands-on)</span>
+        </div>
+        <h3>Vulnerability Write-ups</h3>
+        <p>Technical write-ups documenting vulnerabilities found and patched in sandboxed environments like VulnHub and Hack The Box.</p>
+        <div class="tag-row">
+          <span class="tag">VulnHub</span>
+          <span class="tag">Hack The Box</span>
+          <span class="tag">CTF</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>
