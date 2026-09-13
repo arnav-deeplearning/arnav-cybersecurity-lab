@@ -34,20 +34,65 @@
   <div class="container narrow">
     <a class="back-link" href="articles.html">&larr; All articles</a>
     <div class="section-head">
-      <div class="article-meta">2026-06-29 &middot; 6 min read</div>
+      <div class="article-meta">2024-11-15 &middot; 6 min read</div>
       <h2>The CIA Triad Isn&#39;t About Spies: Confidentiality, Integrity, Availability, Explained</h2>
       <div class="tag-row">
         <span class="tag">Concepts</span>
         <span class="tag">Foundations</span>
       </div>
     </div>
+
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>The CIA triad -- Confidentiality, Integrity, Availability -- is the three-question checklist behind almost every security decision. Once you see the pattern, you can&#39;t unsee it.</p>
+    </div>
+
     <div class="prose article-body">
-      <p>Every cybersecurity course I&#x27;ve taken starts with the same three letters: CIA. Not the agency -- the triad. Confidentiality, Integrity, Availability. It sounds like the kind of thing you memorize for a quiz and forget by June. I thought that too, until I noticed I couldn&#x27;t stop using it to explain literally everything else in the course.</p>
-      <p><strong>Confidentiality</strong> is the one people usually get immediately: information should only be accessible to people who are actually authorized to see it. Encrypting a file, requiring a password, restricting who can view a document -- all confidentiality controls. This is the part of security that maps most directly to the word &#x27;privacy.&#x27;</p>
-      <p><strong>Integrity</strong> is less intuitive at first. It&#x27;s not about who can see data -- it&#x27;s about whether the data is trustworthy. Has it been changed, accidentally or on purpose, since it was created? A grade in a school&#x27;s database needs integrity: if a hacker (or an ambitious student) could quietly edit it, the number stops meaning anything. This is why systems use things like hashes and checksums -- little mathematical fingerprints that change the instant even one character does.</p>
-      <p><strong>Availability</strong> is the one people forget exists until it doesn&#x27;t. A system can be perfectly confidential and have flawless integrity and still fail completely if nobody who needs it can actually use it. This is exactly what a DDoS attack targets -- it doesn&#x27;t steal anything or change anything, it just floods a system with traffic until real users can&#x27;t get through. Availability is also why backups matter so much: ransomware is, at its core, an attack on availability. Your files still technically exist. You just can&#x27;t use them anymore.</p>
-      <p>What clicked for me is that almost every security decision is really a decision about which side of this triangle you&#x27;re protecting, and that those three goals sometimes pull against each other. The most confidential system imaginable -- locked in a vault, disconnected from everything -- has terrible availability. The most available system imaginable -- open to everyone, no authentication -- has zero confidentiality. Security isn&#x27;t about maximizing all three. It&#x27;s about deciding, deliberately, how much of each a specific system actually needs.</p>
-      <p>That reframing is honestly why the triad stuck with me. It&#x27;s not a memorization exercise. It&#x27;s a lens. Once you have it, you start looking at security news differently: instead of &#x27;a company got hacked,&#x27; you start asking which part of the triad actually failed, and that question usually tells you a lot about what should have been done differently.</p>
+        <p>Every cybersecurity course I&#x27;ve taken starts with the same three letters: CIA. Not the agency -- the triad. Confidentiality, Integrity, Availability. It sounds like the kind of thing you memorize for a quiz and forget by December. I thought that too, until I noticed I couldn&#x27;t stop using it to explain literally everything else in the course.</p>
+        <div class="chart-container"><svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CIA triad diagram">
+      <polygon points="250,30 460,290 40,290" fill="none" stroke="var(--border)" stroke-width="2"/>
+      <circle cx="250" cy="70" r="46" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="250" y="65" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="var(--font)">Confidentiality</text>
+      <text x="250" y="82" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="var(--font)">Only the right people see it</text>
+
+      <circle cx="105" cy="255" r="46" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="105" y="250" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="var(--font)">Integrity</text>
+      <text x="105" y="267" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="var(--font)">Nothing was tampered with</text>
+
+      <circle cx="395" cy="255" r="46" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+      <text x="395" y="250" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="var(--font)">Availability</text>
+      <text x="395" y="267" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="var(--font)">Accessible when needed</text>
+    </svg></div>
+        <p><strong>Confidentiality</strong> is the one people usually get immediately: information should only be accessible to people who are actually authorized to see it. Encrypting a file, requiring a password, restricting who can view a document -- all confidentiality controls. This is the part of security that maps most directly to the word &#x27;privacy.&#x27;</p>
+        <p><strong>Integrity</strong> is less intuitive at first. It&#x27;s not about who can see data -- it&#x27;s about whether the data is trustworthy. Has it been changed, accidentally or on purpose, since it was created? A grade in a school&#x27;s database needs integrity: if someone could quietly edit it, the number stops meaning anything. This is why systems use things like hashes and checksums -- little mathematical fingerprints that change the instant even one character does.</p>
+        <p><strong>Availability</strong> is the one people forget exists until it doesn&#x27;t. A system can be perfectly confidential and have flawless integrity and still fail completely if nobody who needs it can actually use it. This is exactly what a DDoS attack targets -- it doesn&#x27;t steal anything or change anything, it just floods a system with traffic until real users can&#x27;t get through.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Principle</th><th>Gets broken by</th><th>Common real fix</th></tr></thead>
+            <tbody>
+              <tr><td>Confidentiality</td><td>Data exposure, weak access control</td><td>Encryption, least privilege</td></tr>
+              <tr><td>Integrity</td><td>Tampering, corruption</td><td>Hashing, checksums, digital signatures</td></tr>
+              <tr><td>Availability</td><td>DDoS, ransomware, hardware failure</td><td>Redundancy, backups, rate limiting</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote class="pull-quote">Security isn&#x27;t about maximizing all three at once. It&#x27;s about deciding, deliberately, how much of each a specific system actually needs -- and accepting that pushing one up usually pushes another one down.</blockquote>
+        <p>The most confidential system imaginable -- locked in a vault, disconnected from everything -- has terrible availability. The most available system imaginable -- open to everyone, no authentication -- has zero confidentiality. That tension is basically the whole job.</p>
+        <p>That reframing is honestly why the triad stuck with me. It&#x27;s not a memorization exercise, it&#x27;s a lens. Once you have it, you start looking at security news differently: instead of &#x27;a company got hacked,&#x27; you start asking which part of the triad actually failed -- and that question usually tells you a lot about what should have been done differently.</p>
+    </div>
+
+    <div class="sources-box">
+      <h3>Sources &amp; further reading</h3>
+      <ul>
+        <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST Cybersecurity Framework</a></li>
+      </ul>
+    </div>
+
+    <div class="article-nav">
+<span></span>      <a class="article-nav-link article-nav-next" href="article-networking-basics-explained.html">
+        <span class="muted">Later &rarr;</span>
+        <span>Networking Basics That Finally Made Sense (A Diagram Helped)</span>
+      </a>
     </div>
   </div>
 </section>

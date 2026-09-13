@@ -34,19 +34,50 @@
   <div class="container narrow">
     <a class="back-link" href="articles.html">&larr; All articles</a>
     <div class="section-head">
-      <div class="article-meta">2026-09-04 &middot; 6 min read</div>
+      <div class="article-meta">2026-09-12 &middot; 6 min read</div>
       <h2>How AI Is Changing Both Sides of Cybersecurity</h2>
       <div class="tag-row">
         <span class="tag">AI</span>
         <span class="tag">Trends</span>
       </div>
     </div>
+
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>AI is making attacks better-written and defenses faster-reacting at the same time. The old advice (&#39;watch for bad grammar&#39;) is running out of runway -- the durable advice is behavioral, not surface-level.</p>
+    </div>
+
     <div class="prose article-body">
-      <p>Most of my writing and building before cybersecurity was in AI, so I probably notice this intersection more than most people would. AI isn&#x27;t just one more tool in the cybersecurity world -- it&#x27;s actively changing both sides of the fight, attack and defense, at the same time, and not always in ways that feel comfortable.</p>
-      <p>On the attack side, the most obvious shift is quality. Phishing emails used to be a reasonably reliable tell -- awkward phrasing, weird grammar, the kind of thing my &#x27;password expiring in 2 hours&#x27; example template leans on for a class demo. A language model can now write a grammatically perfect, contextually appropriate, personalized message in seconds. The &#x27;badly written scam email&#x27; red flag, one of the most commonly taught tells, is quietly becoming less reliable every year. Voice and video deepfakes push this even further -- the CEO fraud pattern I wrote about in my phishing simulator article gets a lot scarier when the &#x27;CEO&#x27; isn&#x27;t just a text message, but a convincing cloned voice on a phone call.</p>
-      <p>On the defense side, the shift is at least as significant. Modern security teams deal with an amount of log and alert data that&#x27;s genuinely impossible for a human analyst to read line by line. Machine learning models trained to spot anomalies -- a login from an unusual location, a pattern of file access that doesn&#x27;t match someone&#x27;s normal behavior -- can surface the handful of alerts that actually matter out of an ocean of noise. That&#x27;s not science fiction; it&#x27;s already how a lot of modern security operations centers function, and it&#x27;s part of why &#x27;log analysis&#x27; is one of the areas I want to keep building projects around.</p>
-      <p>What I find most interesting isn&#x27;t either side alone -- it&#x27;s that this is fundamentally an arms race running at AI speed instead of human speed. Every improvement in AI-assisted attack tooling puts pressure on defenders to adopt AI-assisted detection just to keep pace, and vice versa. I don&#x27;t think that race has an obvious permanent winner, and I&#x27;m skeptical of anyone who claims it does in either direction.</p>
-      <p>My honest takeaway, as someone building small tools on both sides of that line, is that the old advice -- &#x27;watch for bad grammar,&#x27; &#x27;look for a sketchy link&#x27; -- is starting to run out of runway as a primary defense. The more durable version of that advice is behavioral, not surface-level: verify unusual requests through a second channel, question urgency regardless of how polished the message looks, and don&#x27;t assume &#x27;well-written&#x27; means &#x27;legitimate&#x27; anymore. That&#x27;s a harder habit to build than spotting a typo, but it&#x27;s the one that&#x27;s actually going to keep working.</p>
+        <p>Most of my writing and building before cybersecurity was in AI, so I probably notice this intersection more than most people would. AI isn&#x27;t just one more tool in the cybersecurity world -- it&#x27;s actively changing both sides of the fight, attack and defense, at the same time.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>Old approach</th><th>AI-accelerated version</th></tr></thead>
+            <tbody>
+              <tr><td>Attack</td><td>Poorly-written phishing, obvious grammar tells</td><td>Grammatically perfect, personalized messages in seconds</td></tr>
+              <tr><td>Attack</td><td>A human impersonator on the phone</td><td>Cloned voices and deepfake video calls</td></tr>
+              <tr><td>Defense</td><td>A human analyst reading logs line by line</td><td>Anomaly detection across more data than any person could read</td></tr>
+              <tr><td>Defense</td><td>Manual triage of every alert</td><td>ML models surfacing the handful of alerts that matter</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>On the attack side, the most obvious shift is quality. Phishing emails used to be a reasonably reliable tell -- awkward phrasing, weird grammar. A language model can now write a grammatically perfect, contextually appropriate, personalized message in seconds. The &#x27;badly written scam email&#x27; red flag, one of the most commonly taught tells, is quietly becoming less reliable every year. Voice and video deepfakes push this even further -- the CEO fraud pattern I wrote about in my phishing simulator article gets a lot scarier when the &#x27;CEO&#x27; isn&#x27;t just a text message, but a convincing cloned voice on a phone call.</p>
+        <p>On the defense side, the shift is at least as significant. Modern security teams deal with an amount of log and alert data that&#x27;s genuinely impossible for a human analyst to read line by line. Machine learning models trained to spot anomalies -- a login from an unusual location, a pattern of file access that doesn&#x27;t match someone&#x27;s normal behavior -- can surface the handful of alerts that actually matter out of an ocean of noise. That&#x27;s already how a lot of modern security operations centers function.</p>
+        <blockquote class="pull-quote">This is fundamentally an arms race running at AI speed instead of human speed. I don&#x27;t think that race has an obvious permanent winner, and I&#x27;m skeptical of anyone who claims it does in either direction.</blockquote>
+        <p>My honest takeaway, as someone building small tools on both sides of that line, is that the old advice -- &#x27;watch for bad grammar,&#x27; &#x27;look for a sketchy link&#x27; -- is starting to run out of runway as a primary defense. The more durable version of that advice is behavioral, not surface-level: verify unusual requests through a second channel, question urgency regardless of how polished the message looks, and don&#x27;t assume &#x27;well-written&#x27; means &#x27;legitimate&#x27; anymore. That&#x27;s a harder habit to build than spotting a typo, but it&#x27;s the one that&#x27;s actually going to keep working.</p>
+    </div>
+
+    <div class="sources-box">
+      <h3>Sources &amp; further reading</h3>
+      <ul>
+        <li><a href="https://attack.mitre.org/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK</a></li>
+      </ul>
+    </div>
+
+    <div class="article-nav">
+      <a class="article-nav-link" href="article-three-breaches-that-changed-how-i-think.html">
+        <span class="muted">&larr; Earlier</span>
+        <span>3 Real Data Breaches That Changed How I Think About Security</span>
+      </a>
     </div>
   </div>
 </section>

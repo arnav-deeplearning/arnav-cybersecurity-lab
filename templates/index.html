@@ -27,23 +27,18 @@
       </div>
     </div>
     <div class="hero-card card">
-      <div class="hero-card-label">Course path</div>
+      <div class="hero-card-label">Course path (from my actual transcript)</div>
       <div class="course-path">
-        <div class="course-step">
+        {% for step in course_timeline %}
+        <div class="course-step{{ ' is-current' if loop.last else '' }}">
           <span class="course-dot"></span>
           <div>
-            <div class="course-name">{{ profile.prior_course }}</div>
-            <div class="muted">Junior year elective</div>
+            <div class="course-name">{{ step.course }}</div>
+            <div class="muted">{{ step.grade }} &middot; {{ step.year }} &middot; {{ step.note }}</div>
           </div>
         </div>
-        <div class="course-connector"></div>
-        <div class="course-step is-current">
-          <span class="course-dot"></span>
-          <div>
-            <div class="course-name">{{ profile.current_course }}</div>
-            <div class="muted">Senior year &middot; new national AP course, fall 2026</div>
-          </div>
-        </div>
+        {% if not loop.last %}<div class="course-connector"></div>{% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>

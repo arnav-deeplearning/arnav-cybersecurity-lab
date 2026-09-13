@@ -37,24 +37,47 @@ PROFILE = {
     "prior_course": "Cybersecurity I (elective)",
 }
 
+# Real course history, straight from the transcript -- used on the
+# homepage timeline and referenced when dating articles so publication
+# dates line up with when this stuff was actually being learned.
+COURSE_TIMELINE = [
+    {"grade": "Grade 10", "year": "2024-25", "course": "Cybersecurity I", "note": "Sophomore-year elective. This is what started it."},
+    {"grade": "Grade 11", "year": "2025-26", "course": "AP Computer Science Principles & AP Research", "note": "No cyber class this year -- but AP Research changed how I evaluate sources."},
+    {"grade": "Grade 12", "year": "2026-27", "course": "AP Cybersecurity", "note": "Current year -- one of the first national cohorts anywhere."},
+]
+
 INTRO_PARAGRAPHS = [
     "Hi, I'm Arnav -- a high school senior currently taking AP "
-    "Cybersecurity, after getting hooked during Cybersecurity I, the "
-    "elective I took the year before. AP Cybersecurity is brand new -- "
-    "College Board took it national this fall after a smaller pilot "
-    "last year -- so my class is one of the first cohorts anywhere "
-    "actually taking it, which is a fun thing to be early to. This "
-    "site is where I keep track of what I'm learning and build small "
-    "projects to actually test whether I understand a concept, "
-    "instead of just being able to define it on a quiz.",
+    "Cybersecurity. It's brand new: College Board just took it "
+    "national this fall after a smaller pilot last year, so my class "
+    "is one of the first cohorts anywhere actually taking it, which "
+    "is a fun thing to be early to. This site is where I keep track "
+    "of what I'm learning and build small projects to actually test "
+    "whether I understand a concept, instead of just being able to "
+    "define it on a quiz.",
 
-    "I got into this from a slightly different angle than most people "
-    "expect. I'd already been building things with AI and writing "
-    "software before I ever took a security class, and at some point "
-    "the obvious question hit me: everything I was building could be "
-    "broken into. That question -- how do you actually protect "
-    "something you've built, and how do the people trying to break in "
-    "actually think -- is what pulled me into cybersecurity for real.",
+    "The path here wasn't a straight line to 'senior year AP "
+    "Cybersecurity,' though. I took Cybersecurity I as a sophomore "
+    "elective and got hooked almost immediately. Junior year, I "
+    "didn't have a cybersecurity class on my schedule at all -- "
+    "instead I took AP Computer Science Principles and AP Research, "
+    "the second half of the AP Capstone program after AP Seminar the "
+    "year before. At the time that felt like a detour. In hindsight, "
+    "AP Research specifically turned out to matter a lot: it's "
+    "fundamentally a class about picking a real question, checking "
+    "whether anyone's already answered it, and being honest about "
+    "what your evidence actually supports -- which is exactly the "
+    "habit I now use to fact-check the sources on this site instead "
+    "of just linking whatever comes up first in a search.",
+
+    "I also got into this from a slightly different angle than most "
+    "people expect. I'd already been building things with AI and "
+    "writing software before I ever took a security class, and at "
+    "some point the obvious question hit me: everything I was "
+    "building could be broken into. That question -- how do you "
+    "actually protect something you've built, and how do the people "
+    "trying to break in actually think -- is what turned an elective "
+    "into an actual interest.",
 
     "What I like about this field is that it's not one skill, it's a "
     "few very different ones stacked on top of each other: you need "
@@ -64,7 +87,12 @@ INTRO_PARAGRAPHS = [
     "code to actually build the tools instead of just reading about "
     "them. AP Cybersecurity is where I'm getting the structured, "
     "textbook version of all of that. This lab is where I try to turn "
-    "it into something real.",
+    "it into something real. Along the way I also picked up the AP "
+    "Seminar and Research Certificate (the AP Capstone diploma), AP "
+    "Scholar with Honor, and a Career Concentration Endorsement in "
+    "Computer Science from my school -- less the point than the "
+    "projects themselves, but a decent sign I was building the right "
+    "habits.",
 
     "Everything you'll find here follows one rule: it's either real, "
     "working code with tests, or it's honestly labeled as 'not built "

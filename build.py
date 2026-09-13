@@ -21,6 +21,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
+import charts
 from data import articles, content, flashcards, phishing_content, quiz, resources
 
 ROOT = Path(__file__).parent
@@ -33,14 +34,51 @@ BASE_CONTEXT = {
 }
 
 
-def paragraphs_html(body: str) -> list:
-    """Split article body text on blank lines and turn **bold** into <strong>, safely."""
-    out = []
+def _inline_html(text: str) -> Markup:
+    """Escape text, then turn **bold** into <strong>. Safe to render directly."""
+    escaped = html.escape(text.strip())
+    return Markup(re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped))
+
+
+def _parse_table(para: str) -> dict:
+    lines = [ln.strip() for ln in para.strip().split("\n") if ln.strip()]
+
+    def split_row(line):
+        return [c.strip() for c in line.strip("|").split("|")]
+
+    header = [_inline_html(c) for c in split_row(lines[0])]
+    body_lines = lines[1:]
+    if body_lines and re.fullmatch(r"[\s|:-]+", body_lines[0]):
+        body_lines = body_lines[1:]
+    rows = [[_inline_html(c) for c in split_row(line)] for line in body_lines]
+    return {"type": "table", "header": header, "rows": rows}
+
+
+def parse_body_blocks(body: str) -> list:
+    """
+    A tiny markdown-like format for article bodies, parsed into typed
+    blocks for the template to render:
+      - blank-line-separated paragraphs, with **bold** support
+      - a paragraph starting with "> " becomes a pull-quote
+      - a paragraph made of "| a | b |" lines becomes a table
+      - a lone "[CHART:key]" line inserts a pre-generated, real-data SVG chart
+    """
+    blocks = []
     for para in body.strip().split("\n\n"):
-        escaped = html.escape(para.strip())
-        with_bold = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
-        out.append(Markup(with_bold))
-    return out
+        para = para.strip()
+        if not para:
+            continue
+        chart_match = re.fullmatch(r"\[CHART:([a-z0-9\-]+)\]", para)
+        if chart_match:
+            key = chart_match.group(1)
+            blocks.append({"type": "chart", "svg": Markup(charts.CHARTS[key]())})
+        elif para.startswith("> "):
+            blocks.append({"type": "quote", "text": _inline_html(para[2:].strip())})
+        elif para.startswith("|"):
+            blocks.append(_parse_table(para))
+        else:
+            blocks.append({"type": "paragraph", "text": _inline_html(para)})
+    return blocks
 
 
 def build():
@@ -57,6 +95,7 @@ def build():
     pages = [
         ("index.html", "index.html", {
             "profile": content.PROFILE,
+            "course_timeline": content.COURSE_TIMELINE,
             "intro_paragraphs": content.INTRO_PARAGRAPHS,
             "why_this_matters": content.WHY_THIS_MATTERS,
             "ground_rules": content.GROUND_RULES,
@@ -112,11 +151,23 @@ def build():
         }),
     ]
 
-    for article in articles.ARTICLES:
+    # The timeline chart needs live data (content.COURSE_TIMELINE), so it's
+    # registered here rather than as a zero-arg entry in charts.CHARTS.
+    charts.CHARTS["course-timeline"] = lambda: charts.course_timeline_diagram(content.COURSE_TIMELINE)
+
+    all_articles = sorted(articles.ARTICLES, key=lambda a: a["date"])
+    for i, article in enumerate(all_articles):
+        prev_article = all_articles[i - 1] if i > 0 else None
+        next_article = all_articles[i + 1] if i + 1 < len(all_articles) else None
         pages.append((
             "article.html",
             f"article-{article['id']}.html",
-            {"article": article, "paragraphs": paragraphs_html(article["body"])},
+            {
+                "article": article,
+                "blocks": parse_body_blocks(article["body"]),
+                "prev_article": prev_article,
+                "next_article": next_article,
+            },
         ))
 
     for template_name, output_name, extra_context in pages:

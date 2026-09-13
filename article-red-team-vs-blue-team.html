@@ -34,20 +34,55 @@
   <div class="container narrow">
     <a class="back-link" href="articles.html">&larr; All articles</a>
     <div class="section-head">
-      <div class="article-meta">2026-08-14 &middot; 6 min read</div>
+      <div class="article-meta">2025-10-21 &middot; 6 min read</div>
       <h2>Red Team vs. Blue Team: Which Path Fits You?</h2>
       <div class="tag-row">
         <span class="tag">Careers</span>
         <span class="tag">For Students</span>
       </div>
     </div>
+
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>Red team breaks things (with permission) to find weaknesses first. Blue team builds and defends the actual systems. Both reward completely different kinds of thinking -- try both before picking a lane.</p>
+    </div>
+
     <div class="prose article-body">
-      <p>If you tell people you&#x27;re into cybersecurity, a common next question is &#x27;so, do you want to be a hacker?&#x27; The honest answer is that &#x27;hacker&#x27; isn&#x27;t really one job, and the field usually gets split into two broad camps: red team and blue team. If you&#x27;re a student trying to figure out which direction actually interests you, this is a decent place to start thinking about it.</p>
-      <p><strong>Red team</strong> is offensive security: people (with explicit, legal authorization) who try to break into systems the way a real attacker would, to find weaknesses before an actual attacker does. Penetration testers, red team operators, bug bounty hunters -- this is the side that gets the dramatic movie treatment, and honestly, some of it is genuinely close to a puzzle-solving game. Platforms like picoCTF and TryHackMe let you try this style of thinking legally and safely, working through deliberately built challenges instead of real systems.</p>
-      <p><strong>Blue team</strong> is defensive security: the people building and maintaining the actual defenses, monitoring systems for suspicious activity, responding when something does go wrong, and doing the unglamorous but essential work of keeping patches current and configurations sane. It&#x27;s less cinematic and, in my opinion, underrated -- most organizations need far more blue team capacity than red team, and the work of actually stopping or containing a real incident is a genuinely high-stakes skill.</p>
-      <p>Here&#x27;s what I&#x27;ve noticed trying both, in a small way, through school projects: they reward different kinds of thinking. Red team work rewards creative, lateral thinking -- looking at a system and asking &#x27;what&#x27;s the weird, unintended way I could misuse this?&#x27; Blue team work rewards methodical, patient thinking -- looking at a flood of logs and noticing the one entry that doesn&#x27;t belong. Neither is &#x27;better.&#x27; They&#x27;re just different muscles.</p>
-      <p>A third option worth knowing about, since it doesn&#x27;t get mentioned as often: <strong>purple team</strong>, which isn&#x27;t really a separate skill so much as a mindset -- red and blue teams actively collaborating, where the attackers share exactly what they found and how, so defenders can close the gap immediately instead of guessing. If you like both sides of the puzzle, that combined role is worth keeping on your radar as you learn more.</p>
-      <p>If you&#x27;re still deciding, my honest advice is to just try small pieces of both before picking a lane. I went in assuming I&#x27;d be purely interested in the offensive side, and building actual defensive tools -- a password manager, a phishing simulator meant to train people, not fool them -- turned out to be just as satisfying, in a quieter way.</p>
+        <p>Funny timing: the year I don&#x27;t have an actual cybersecurity class on my schedule -- AP Computer Science Principles and AP Research took its spot -- is the year I&#x27;ve had the most time to actually think about where this interest is heading long-term. If you tell people you&#x27;re into cybersecurity, a common next question is &#x27;so, do you want to be a hacker?&#x27; The honest answer is that &#x27;hacker&#x27; isn&#x27;t really one job, and the field usually splits into two broad camps: red team and blue team.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>Focus</th><th>Rewards</th><th>Try it (legally)</th></tr></thead>
+            <tbody>
+              <tr><td>Red team</td><td>Finding weaknesses before attackers do</td><td>Creative, lateral thinking</td><td>picoCTF, TryHackMe</td></tr>
+              <tr><td>Blue team</td><td>Detecting, containing, and recovering</td><td>Patient, methodical thinking</td><td>Log-analysis practice, home labs</td></tr>
+              <tr><td>Purple team</td><td>Both sides sharing findings in real time</td><td>Communication + both skill sets</td><td>Usually grown into, not started in</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Red team</strong> is offensive security: people (with explicit, legal authorization) who try to break into systems the way a real attacker would, to find weaknesses before an actual attacker does. Penetration testers, red team operators, bug bounty hunters -- this is the side that gets the dramatic movie treatment, and honestly, some of it is genuinely close to a puzzle-solving game. Platforms like picoCTF and TryHackMe let you try this style of thinking legally and safely, working through deliberately built challenges instead of real systems.</p>
+        <p><strong>Blue team</strong> is defensive security: the people building and maintaining the actual defenses, monitoring systems for suspicious activity, responding when something does go wrong, and doing the unglamorous but essential work of keeping patches current and configurations sane. It&#x27;s less cinematic and, in my opinion, underrated -- most organizations need far more blue team capacity than red team, and actually stopping or containing a real incident is a genuinely high-stakes skill.</p>
+        <blockquote class="pull-quote">Red team work rewards creative, lateral thinking: what&#x27;s the weird, unintended way I could misuse this? Blue team work rewards patient, methodical thinking: which one log entry, out of a million, doesn&#x27;t belong?</blockquote>
+        <p>Neither is &#x27;better.&#x27; They&#x27;re just different muscles, and I don&#x27;t think you need to commit early. My plan for this year and next is to keep poking at both through practice platforms and small projects, rather than deciding right now which one I&#x27;m &#x27;supposed&#x27; to be.</p>
+    </div>
+
+    <div class="sources-box">
+      <h3>Sources &amp; further reading</h3>
+      <ul>
+        <li><a href="https://picoctf.org/" target="_blank" rel="noopener noreferrer">picoCTF</a></li>
+        <li><a href="https://tryhackme.com/" target="_blank" rel="noopener noreferrer">TryHackMe</a></li>
+        <li><a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener noreferrer">OverTheWire: Bandit</a></li>
+      </ul>
+    </div>
+
+    <div class="article-nav">
+      <a class="article-nav-link" href="article-five-password-habits.html">
+        <span class="muted">&larr; Earlier</span>
+        <span>5 Password Habits That Are Quietly Wrecking Your Security</span>
+      </a>
+      <a class="article-nav-link article-nav-next" href="article-what-ap-research-taught-me.html">
+        <span class="muted">Later &rarr;</span>
+        <span>What AP Research Taught Me About Picking a Fight With My Own Argument</span>
+      </a>
     </div>
   </div>
 </section>

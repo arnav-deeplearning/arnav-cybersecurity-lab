@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Networking Basics That Finally Made Sense (A Diagram Helped) | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container narrow">
+    <a class="back-link" href="articles.html">&larr; All articles</a>
+    <div class="section-head">
+      <div class="article-meta">2025-02-20 &middot; 5 min read</div>
+      <h2>Networking Basics That Finally Made Sense (A Diagram Helped)</h2>
+      <div class="tag-row">
+        <span class="tag">Concepts</span>
+        <span class="tag">Networking</span>
+      </div>
+    </div>
+
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>A request from your device to a website passes through a firewall, a router, and a DNS lookup before it ever leaves your network. Seeing that as a diagram made the vocabulary click in a way flashcards never did.</p>
+    </div>
+
+    <div class="prose article-body">
+        <p>For the first few weeks of the networking unit in Cybersecurity I, I could define every term on command and still couldn&#x27;t have explained what actually happens when you type a website into your browser. Firewall, port, DNS, router -- I had definitions for all of them floating around independently, with no picture connecting them.</p>
+        <p>What fixed it, embarrassingly, was just drawing the path a request actually takes.</p>
+        <div class="chart-container"><svg viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Basic network flow diagram">
+      <g font-family="var(--font)" font-size="12">
+        <rect x="10" y="55" width="110" height="50" rx="8" fill="var(--bg)" stroke="var(--border)"/>
+        <text x="65" y="85" text-anchor="middle" fill="var(--text)">Your device</text>
+
+        <path d="M120 80 H180" stroke="var(--border)" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="180" y="55" width="110" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="235" y="80" text-anchor="middle" fill="var(--accent)">Firewall</text>
+        <text x="235" y="95" text-anchor="middle" fill="var(--text-muted)" font-size="9.5">allows/blocks by rule</text>
+
+        <path d="M290 80 H350" stroke="var(--border)" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="350" y="55" width="110" height="50" rx="8" fill="var(--bg)" stroke="var(--border)"/>
+        <text x="405" y="80" text-anchor="middle" fill="var(--text)">Router</text>
+        <text x="405" y="95" text-anchor="middle" fill="var(--text-muted)" font-size="9.5">DNS lookup happens near here</text>
+
+        <path d="M460 80 H520" stroke="var(--border)" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <rect x="520" y="55" width="110" height="50" rx="8" fill="var(--bg)" stroke="var(--border)"/>
+        <text x="575" y="80" text-anchor="middle" fill="var(--text)">Internet</text>
+      </g>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="var(--border)"/>
+        </marker>
+      </defs>
+    </svg></div>
+        <p>Your device doesn&#x27;t talk to the internet directly. The request first hits your <strong>firewall</strong>, which checks it against a set of rules before deciding whether it&#x27;s even allowed to continue -- think of it as a bouncer checking a list, not a lock on a door. Assuming it&#x27;s allowed through, it reaches your <strong>router</strong>, and somewhere around there a <strong>DNS</strong> lookup happens: the human-readable name you typed (like a website&#x27;s address) gets translated into the actual numerical IP address computers use to find each other. Only after all of that does anything leave for the open internet.</p>
+        <p>Ports were the other piece that finally clicked once I had the picture. A port isn&#x27;t a physical thing -- it&#x27;s a number that tells a device which specific service a piece of traffic is meant for, the same way an apartment number tells mail which unit in a building to go to.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Port</th><th>Used for</th></tr></thead>
+            <tbody>
+              <tr><td>22</td><td>SSH -- secure remote command-line access</td></tr>
+              <tr><td>80</td><td>HTTP -- unencrypted web traffic</td></tr>
+              <tr><td>443</td><td>HTTPS -- encrypted web traffic</td></tr>
+              <tr><td>53</td><td>DNS -- domain name lookups</td></tr>
+              <tr><td>3389</td><td>RDP -- remote desktop access</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote class="pull-quote">A firewall blocking everything except the ports a service actually needs isn&#x27;t paranoia. It&#x27;s just refusing to leave every apartment door in the building unlocked because a couple of units need mail delivered.</blockquote>
+        <p>None of this required understanding any math or writing any code -- it just required a diagram instead of a flashcard. I&#x27;ve noticed that&#x27;s true for a lot of networking concepts: the vocabulary is dense, but the actual mechanism, once you can see it, is usually pretty simple.</p>
+    </div>
+
+
+    <div class="article-nav">
+      <a class="article-nav-link" href="article-cia-triad-explained.html">
+        <span class="muted">&larr; Earlier</span>
+        <span>The CIA Triad Isn&#39;t About Spies: Confidentiality, Integrity, Availability, Explained</span>
+      </a>
+      <a class="article-nav-link article-nav-next" href="article-five-password-habits.html">
+        <span class="muted">Later &rarr;</span>
+        <span>5 Password Habits That Are Quietly Wrecking Your Security</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

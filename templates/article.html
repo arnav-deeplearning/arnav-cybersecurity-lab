@@ -14,10 +14,61 @@
         {% endfor %}
       </div>
     </div>
+
+    {% if article.tldr %}
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>{{ article.tldr }}</p>
+    </div>
+    {% endif %}
+
     <div class="prose article-body">
-      {% for paragraph in paragraphs %}
-      <p>{{ paragraph }}</p>
+      {% for block in blocks %}
+        {% if block.type == "paragraph" %}
+        <p>{{ block.text }}</p>
+        {% elif block.type == "quote" %}
+        <blockquote class="pull-quote">{{ block.text }}</blockquote>
+        {% elif block.type == "table" %}
+        <div class="table-wrap">
+          <table>
+            <thead><tr>{% for cell in block.header %}<th>{{ cell }}</th>{% endfor %}</tr></thead>
+            <tbody>
+              {% for row in block.rows %}
+              <tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% elif block.type == "chart" %}
+        <div class="chart-container">{{ block.svg }}</div>
+        {% endif %}
       {% endfor %}
+    </div>
+
+    {% if article.sources %}
+    <div class="sources-box">
+      <h3>Sources &amp; further reading</h3>
+      <ul>
+        {% for source in article.sources %}
+        <li><a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">{{ source.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="article-nav">
+      {% if prev_article %}
+      <a class="article-nav-link" href="article-{{ prev_article.id }}.html">
+        <span class="muted">&larr; Earlier</span>
+        <span>{{ prev_article.title }}</span>
+      </a>
+      {% else %}<span></span>{% endif %}
+      {% if next_article %}
+      <a class="article-nav-link article-nav-next" href="article-{{ next_article.id }}.html">
+        <span class="muted">Later &rarr;</span>
+        <span>{{ next_article.title }}</span>
+      </a>
+      {% endif %}
     </div>
   </div>
 </section>

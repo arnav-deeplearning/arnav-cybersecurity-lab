@@ -34,19 +34,70 @@
   <div class="container narrow">
     <a class="back-link" href="articles.html">&larr; All articles</a>
     <div class="section-head">
-      <div class="article-meta">2026-08-21 &middot; 7 min read</div>
+      <div class="article-meta">2026-09-02 &middot; 7 min read</div>
       <h2>3 Real Data Breaches That Changed How I Think About Security</h2>
       <div class="tag-row">
         <span class="tag">Case Studies</span>
         <span class="tag">History</span>
       </div>
     </div>
+
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>Equifax, Target, and Colonial Pipeline weren&#39;t broken by genius attackers. A missed patch, an over-trusted vendor, and one unpatched entry point did the damage -- which means the lessons apply to normal decisions, not exotic ones.</p>
+    </div>
+
     <div class="prose article-body">
-      <p>One thing that surprised me learning about real-world breaches is how rarely they involve some brilliant, unstoppable technical genius. Most of the time, the cause is something almost boring -- which is honestly a lot more useful to learn from, because it means the lesson usually applies to normal decisions, not exotic ones.</p>
-      <p><strong>Equifax, 2017.</strong> One of the credit bureaus that holds financial data on most American adults suffered a breach that exposed the personal information -- including Social Security numbers -- of about 147 million people. The root cause wasn&#x27;t some undiscovered zero-day. It was a known vulnerability in a piece of web software (Apache Struts) that had a patch available for months before the breach happened. The lesson I took from this one is almost uncomfortably simple: patch management isn&#x27;t a boring afterthought, it&#x27;s one of the highest-leverage things a security program does, and skipping it is how &#x27;we knew about this weakness&#x27; turns into &#x27;and we got breached through it anyway.&#x27;</p>
-      <p><strong>Target, 2013.</strong> During the holiday shopping season, attackers stole roughly 40 million customers&#x27; credit and debit card numbers. The way in wasn&#x27;t Target&#x27;s own systems directly -- it was stolen network credentials from a third-party HVAC (heating and air conditioning) vendor that had remote access into Target&#x27;s network for billing purposes. This one reshaped how I think about trust boundaries: your security isn&#x27;t just about your own systems, it&#x27;s about every third party you&#x27;ve handed access to, even ones that seem completely unrelated to your core business.</p>
-      <p><strong>Colonial Pipeline, 2021.</strong> A ransomware attack (by a group known as DarkSide) hit the company operating a major fuel pipeline supplying a large part of the U.S. East Coast. The company shut the pipeline down as a precaution, which led to real fuel shortages and panic buying. Colonial ultimately paid a multi-million dollar ransom, part of which U.S. law enforcement later recovered. What struck me about this case is how it made &#x27;cybersecurity&#x27; impossible to think of as purely a digital problem -- a ransomware attack on IT systems produced lines at gas stations. Security incidents increasingly have real, physical, economy-scale consequences, not just leaked data.</p>
-      <p>Put together, these three cases taught me more about practical security priorities than any single lecture: patch what&#x27;s already known to be broken, watch every third party you trust with access, and take backups and incident response planning seriously, because the cost of an incident is rarely contained to just &#x27;computer stuff.&#x27; None of these breaches needed a genius attacker. They needed one skipped patch, one over-trusted vendor connection, and one unpatched entry point respectively. That&#x27;s the part that stuck with me.</p>
+        <p>One thing that surprised me learning about real-world breaches is how rarely they involve some brilliant, unstoppable technical genius. Most of the time, the cause is something almost boring -- which is honestly a lot more useful to learn from, because it means the lesson usually applies to normal decisions, not exotic ones.</p>
+        <div class="chart-container"><svg viewBox="0 0 620 146" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Records exposed, in millions (publicly reported figures)">
+      <text x="0" y="18" fill="var(--text)" font-size="14" font-weight="700" font-family="var(--font)">Records exposed, in millions (publicly reported figures)</text>
+      <g>
+          <text x="0" y="58.0" fill="var(--text)" font-size="13" font-family="var(--font)">Equifax (2017)</text>
+          <rect x="190" y="36" width="340" height="34" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+          <rect x="190" y="36" width="295.7" height="34" rx="6" fill="var(--accent)"/>
+          <text x="540" y="58.0" fill="var(--text)" font-size="13" font-weight="700" font-family="var(--font-mono)">147M</text>
+          <text x="190" y="82" fill="var(--text-muted)" font-size="10.5" font-family="var(--font)">million people affected</text>
+        
+          <text x="0" y="106.0" fill="var(--text)" font-size="13" font-family="var(--font)">Target (2013)</text>
+          <rect x="190" y="84" width="340" height="34" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+          <rect x="190" y="84" width="80.4" height="34" rx="6" fill="var(--accent)"/>
+          <text x="540" y="106.0" fill="var(--text)" font-size="13" font-weight="700" font-family="var(--font-mono)">40M</text>
+          <text x="190" y="130" fill="var(--text-muted)" font-size="10.5" font-family="var(--font)">million card numbers stolen</text>
+        </g>
+    </svg></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Breach</th><th>Root cause</th><th>The lesson</th></tr></thead>
+            <tbody>
+              <tr><td>Equifax (2017)</td><td>Known vulnerability, unpatched for months</td><td>Patch management is high-leverage, not busywork</td></tr>
+              <tr><td>Target (2013)</td><td>Stolen credentials from a third-party HVAC vendor</td><td>Your security includes every third party you trust</td></tr>
+              <tr><td>Colonial Pipeline (2021)</td><td>Ransomware via a single compromised password</td><td>Digital incidents can have real, physical consequences</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Equifax, 2017.</strong> One of the credit bureaus that holds financial data on most American adults suffered a breach that exposed the personal information -- including Social Security numbers -- of about 147 million people. The root cause wasn&#x27;t some undiscovered zero-day. It was a known vulnerability in a piece of web software (Apache Struts) that had a patch available for months before the breach happened.</p>
+        <p><strong>Target, 2013.</strong> During the holiday shopping season, attackers stole roughly 40 million customers&#x27; credit and debit card numbers. The way in wasn&#x27;t Target&#x27;s own systems directly -- it was stolen network credentials from a third-party HVAC (heating and air conditioning) vendor that had remote access into Target&#x27;s network for billing purposes.</p>
+        <p><strong>Colonial Pipeline, 2021.</strong> A ransomware attack hit the company operating a major fuel pipeline supplying a large part of the U.S. East Coast. The company shut the pipeline down as a precaution, which led to real fuel shortages and panic buying. Colonial ultimately paid a multi-million dollar ransom, part of which U.S. law enforcement later recovered.</p>
+        <blockquote class="pull-quote">A ransomware attack on IT systems produced lines at gas stations. Security incidents increasingly have real, physical, economy-scale consequences -- not just leaked data.</blockquote>
+        <p>Put together, these three cases taught me more about practical security priorities than any single lecture: patch what&#x27;s already known to be broken, watch every third party you trust with access, and take backups and incident response planning seriously. None of these breaches needed a genius attacker. They needed one skipped patch, one over-trusted vendor connection, and one unpatched entry point respectively. That&#x27;s the part that stuck with me.</p>
+    </div>
+
+    <div class="sources-box">
+      <h3>Sources &amp; further reading</h3>
+      <ul>
+        <li><a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer">Krebs on Security</a></li>
+      </ul>
+    </div>
+
+    <div class="article-nav">
+      <a class="article-nav-link" href="article-building-a-phishing-simulator.html">
+        <span class="muted">&larr; Earlier</span>
+        <span>I Built a Phishing Simulator for This Site — Here&#39;s What It Taught Me</span>
+      </a>
+      <a class="article-nav-link article-nav-next" href="article-ai-and-cybersecurity.html">
+        <span class="muted">Later &rarr;</span>
+        <span>How AI Is Changing Both Sides of Cybersecurity</span>
+      </a>
     </div>
   </div>
 </section>

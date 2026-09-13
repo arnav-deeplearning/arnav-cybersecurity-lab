@@ -34,19 +34,60 @@
   <div class="container narrow">
     <a class="back-link" href="articles.html">&larr; All articles</a>
     <div class="section-head">
-      <div class="article-meta">2026-07-24 &middot; 6 min read</div>
+      <div class="article-meta">2026-08-22 &middot; 7 min read</div>
       <h2>I Built a Phishing Simulator for This Site — Here&#39;s What It Taught Me</h2>
       <div class="tag-row">
         <span class="tag">Projects</span>
         <span class="tag">Social Engineering</span>
       </div>
     </div>
+
+    <div class="tldr-box">
+      <span class="tldr-label">TL;DR</span>
+      <p>My simulator&#39;s own math says the friendly, low-pressure &#39;CEO fraud&#39; email beats the obvious prize-scam email by roughly 2 to 1. The best phishing isn&#39;t the one that looks like a scam.</p>
+    </div>
+
     <div class="prose article-body">
-      <p>For one of the apps on this site, I built a phishing simulator -- a tool that sends a simulated phishing campaign against fictional test personas and reports a click rate. I want to be upfront about something first: it&#x27;s fully synthetic. There is no networking code in it at all -- no way to send a real email to a real person, on purpose. I wanted the tool to be structurally incapable of being misused, not just responsibly used.</p>
-      <p>What I didn&#x27;t expect was how much I&#x27;d learn from writing the fake emails themselves. I assumed the hard part would be the simulation logic -- the code deciding who statistically &#x27;clicks.&#x27; That part took maybe twenty minutes. Writing three convincing phishing emails took most of an afternoon, because it forced me to actually think like someone trying to manipulate a reader instead of someone writing a normal email.</p>
-      <p>The most obvious template I wrote -- a fake prize notification -- was almost boring to design. Urgency, a reward, a countdown. Anyone who&#x27;s used the internet for five years has some instinct against that one. But the one modeled after &#x27;CEO fraud&#x27; -- a short, casual message that appears to be from a company&#x27;s CEO, asking someone to quickly buy gift cards -- that one bothered me. It doesn&#x27;t look scary. It doesn&#x27;t use any urgency tricks that are obvious on the surface. It works by borrowing someone&#x27;s authority and their busy schedule as an excuse for why you shouldn&#x27;t ask questions. When I ran the simulation against my synthetic test personas, that template consistently got the highest click rate, by a lot -- which matched what I&#x27;d read about how real-world CEO fraud actually performs against real organizations.</p>
-      <p>That was the actual lesson, and it wasn&#x27;t a technical one: the most dangerous phishing isn&#x27;t the one that looks like a scam. It&#x27;s the one that looks like a completely ordinary message from someone you&#x27;d normally trust, asking for something slightly unusual, with just enough urgency that stopping to double-check feels awkward. The fix isn&#x27;t &#x27;be more suspicious of scary emails.&#x27; It&#x27;s &#x27;when a request involves money, credentials, or access, verify it through a second channel -- even if that means the mildly uncomfortable step of just calling the person and asking if they actually sent it.&#x27;</p>
-      <p>I came out of that project more convinced that phishing awareness training actually matters, and less convinced that it&#x27;s mostly about spotting bad grammar or sketchy links. The best fake emails don&#x27;t have either.</p>
+        <p>For one of the apps on this site, I built a phishing simulator -- a tool that sends a simulated phishing campaign against fictional test personas and reports a click rate. I want to be upfront about something first: it&#x27;s fully synthetic. There is no networking code in it at all -- no way to send a real email to a real person, on purpose. I wanted the tool to be structurally incapable of being misused, not just responsibly used.</p>
+        <p>What I didn&#x27;t expect was how much I&#x27;d learn from writing the fake emails themselves. I assumed the hard part would be the simulation logic -- the code deciding who statistically &#x27;clicks.&#x27; That part took maybe twenty minutes. Writing three convincing phishing emails took most of an afternoon, because it forced me to actually think like someone trying to manipulate a reader instead of someone writing a normal email.</p>
+        <div class="chart-container"><svg viewBox="0 0 620 194" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Expected click rate by template (my simulator's own formula)">
+      <text x="0" y="18" fill="var(--text)" font-size="14" font-weight="700" font-family="var(--font)">Expected click rate by template (my simulator's own formula)</text>
+      <g>
+          <text x="0" y="58.0" fill="var(--text)" font-size="13" font-family="var(--font)">Quick favor?</text>
+          <rect x="190" y="36" width="340" height="34" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+          <rect x="190" y="36" width="295.7" height="34" rx="6" fill="var(--accent)"/>
+          <text x="540" y="58.0" fill="var(--text)" font-size="13" font-weight="700" font-family="var(--font-mono)">50.6%</text>
+          <text x="190" y="82" fill="var(--text-muted)" font-size="10.5" font-family="var(--font)">Difficulty 0.70</text>
+        
+          <text x="0" y="106.0" fill="var(--text)" font-size="13" font-family="var(--font)">URGENT: Your NorthPeak Cloud p…</text>
+          <rect x="190" y="84" width="340" height="34" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+          <rect x="190" y="84" width="221.4" height="34" rx="6" fill="var(--accent)"/>
+          <text x="540" y="106.0" fill="var(--text)" font-size="13" font-weight="700" font-family="var(--font-mono)">37.9%</text>
+          <text x="190" y="130" fill="var(--text-muted)" font-size="10.5" font-family="var(--font)">Difficulty 0.40</text>
+        
+          <text x="0" y="154.0" fill="var(--text)" font-size="13" font-family="var(--font)">Congratulations! You've won a …</text>
+          <rect x="190" y="132" width="340" height="34" rx="6" fill="var(--bg)" stroke="var(--border)"/>
+          <rect x="190" y="132" width="160.1" height="34" rx="6" fill="var(--accent)"/>
+          <text x="540" y="154.0" fill="var(--text)" font-size="13" font-weight="700" font-family="var(--font-mono)">27.4%</text>
+          <text x="190" y="178" fill="var(--text-muted)" font-size="10.5" font-family="var(--font)">Difficulty 0.15</text>
+        </g>
+    </svg></div>
+        <p>That chart isn&#x27;t made up for effect -- it&#x27;s the exact formula my simulator uses (each synthetic persona&#x27;s susceptibility, adjusted by how convincing the template is), averaged out to its true expected value. The obvious prize-notification email -- countdown, too-good-to-be-true reward -- barely moves anyone. The email modeled after &#x27;CEO fraud,&#x27; a short, casual message that appears to be from a company&#x27;s CEO asking someone to quickly buy gift cards, beats it by nearly two to one, and it doesn&#x27;t use any urgency trick that&#x27;s obvious on the surface.</p>
+        <blockquote class="pull-quote">The most dangerous phishing isn&#x27;t the one that looks like a scam. It&#x27;s the one that looks like a completely ordinary message from someone you&#x27;d normally trust, asking for something slightly unusual, with just enough urgency that stopping to double-check feels awkward.</blockquote>
+        <p>That gap between the two templates matched what I&#x27;d read about how real-world CEO fraud actually performs against real organizations, which was oddly reassuring -- it meant my simplified model was pointing in a direction that matches reality, not just producing a number that looked plausible.</p>
+        <p>The fix isn&#x27;t &#x27;be more suspicious of scary emails.&#x27; It&#x27;s &#x27;when a request involves money, credentials, or access, verify it through a second channel&#x27; -- even if that means the mildly uncomfortable step of just calling the person and asking if they actually sent it. I came out of this project more convinced that phishing awareness training matters, and less convinced that it&#x27;s mostly about spotting bad grammar or sketchy links. The best fake emails don&#x27;t have either.</p>
+    </div>
+
+
+    <div class="article-nav">
+      <a class="article-nav-link" href="article-why-i-started-learning-cybersecurity.html">
+        <span class="muted">&larr; Earlier</span>
+        <span>Why I Started Learning Cybersecurity (Looking Back on Two Years of It)</span>
+      </a>
+      <a class="article-nav-link article-nav-next" href="article-three-breaches-that-changed-how-i-think.html">
+        <span class="muted">Later &rarr;</span>
+        <span>3 Real Data Breaches That Changed How I Think About Security</span>
+      </a>
     </div>
   </div>
 </section>
