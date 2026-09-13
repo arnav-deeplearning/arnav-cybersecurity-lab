@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 Real Data Breaches That Changed How I Think About Security | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container narrow">
+    <a class="back-link" href="articles.html">&larr; All articles</a>
+    <div class="section-head">
+      <div class="article-meta">2026-08-21 &middot; 7 min read</div>
+      <h2>3 Real Data Breaches That Changed How I Think About Security</h2>
+      <div class="tag-row">
+        <span class="tag">Case Studies</span>
+        <span class="tag">History</span>
+      </div>
+    </div>
+    <div class="prose article-body">
+      <p>One thing that surprised me learning about real-world breaches is how rarely they involve some brilliant, unstoppable technical genius. Most of the time, the cause is something almost boring -- which is honestly a lot more useful to learn from, because it means the lesson usually applies to normal decisions, not exotic ones.</p>
+      <p><strong>Equifax, 2017.</strong> One of the credit bureaus that holds financial data on most American adults suffered a breach that exposed the personal information -- including Social Security numbers -- of about 147 million people. The root cause wasn&#x27;t some undiscovered zero-day. It was a known vulnerability in a piece of web software (Apache Struts) that had a patch available for months before the breach happened. The lesson I took from this one is almost uncomfortably simple: patch management isn&#x27;t a boring afterthought, it&#x27;s one of the highest-leverage things a security program does, and skipping it is how &#x27;we knew about this weakness&#x27; turns into &#x27;and we got breached through it anyway.&#x27;</p>
+      <p><strong>Target, 2013.</strong> During the holiday shopping season, attackers stole roughly 40 million customers&#x27; credit and debit card numbers. The way in wasn&#x27;t Target&#x27;s own systems directly -- it was stolen network credentials from a third-party HVAC (heating and air conditioning) vendor that had remote access into Target&#x27;s network for billing purposes. This one reshaped how I think about trust boundaries: your security isn&#x27;t just about your own systems, it&#x27;s about every third party you&#x27;ve handed access to, even ones that seem completely unrelated to your core business.</p>
+      <p><strong>Colonial Pipeline, 2021.</strong> A ransomware attack (by a group known as DarkSide) hit the company operating a major fuel pipeline supplying a large part of the U.S. East Coast. The company shut the pipeline down as a precaution, which led to real fuel shortages and panic buying. Colonial ultimately paid a multi-million dollar ransom, part of which U.S. law enforcement later recovered. What struck me about this case is how it made &#x27;cybersecurity&#x27; impossible to think of as purely a digital problem -- a ransomware attack on IT systems produced lines at gas stations. Security incidents increasingly have real, physical, economy-scale consequences, not just leaked data.</p>
+      <p>Put together, these three cases taught me more about practical security priorities than any single lecture: patch what&#x27;s already known to be broken, watch every third party you trust with access, and take backups and incident response planning seriously, because the cost of an incident is rarely contained to just &#x27;computer stuff.&#x27; None of these breaches needed a genius attacker. They needed one skipped patch, one over-trusted vendor connection, and one unpatched entry point respectively. That&#x27;s the part that stuck with me.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

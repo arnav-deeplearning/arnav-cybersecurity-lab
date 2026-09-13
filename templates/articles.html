@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Articles | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom: 20px;">
+  <div class="container">
+    <span class="eyebrow">Writing</span>
+    <h1>Articles</h1>
+    <p class="hero-lede">Things I've learned, built, or figured out along the way -- written as I actually think about them, not as a textbook would.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="article-list">
+      {% for article in articles | sort(attribute="date", reverse=true) %}
+      <a class="card article-card" href="article-{{ article.id }}.html">
+        <div class="article-meta">{{ article.date }} &middot; {{ article.read_time }}</div>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.excerpt }}</p>
+        <div class="tag-row">
+          {% for tag in article.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

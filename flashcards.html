@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Flashcards | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="apps.html">&larr; All apps</a>
+    <div class="section-head">
+      <span class="eyebrow">Learn &amp; Practice</span>
+      <h2>🃏 Cybersecurity Flashcards</h2>
+      <p>Flip through core cybersecurity terms and concepts, leveled from Foundational to Advanced -- the same vocabulary AP Cybersecurity actually tests.</p>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-field">
+        <label for="levelSelect">Level</label>
+        <select id="levelSelect">
+          <option value="all">All levels</option>
+          <option value="Foundational">Foundational</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="categorySelect">Category</label>
+        <select id="categorySelect">
+          <option value="all">All categories</option>
+          <option value="core">Core Concepts</option>
+          <option value="networking">Networking &amp; Systems</option>
+          <option value="crypto">Cryptography</option>
+          <option value="threats">Threats &amp; Social Engineering</option>
+          <option value="defense">Defense &amp; Best Practices</option>
+        </select>
+      </div>
+      <div class="filter-field filter-field-actions">
+        <label>&nbsp;</label>
+        <div class="demo-actions">
+          <button type="button" class="btn btn-ghost" id="shuffleBtn">Shuffle</button>
+          <button type="button" class="btn btn-ghost" id="resetProgressBtn">Reset Progress</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="deck-progress">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label muted" id="progressLabel"></div>
+    </div>
+
+    <div class="flashcard-stage" id="flashcardStage">
+      <div class="flashcard" id="flashcard">
+        <div class="flashcard-face flashcard-front">
+          <span class="flashcard-level" id="cardLevel"></span>
+          <div class="flashcard-term" id="cardTerm"></div>
+          <span class="muted flashcard-hint">Click to flip</span>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="flashcard-definition" id="cardDefinition"></div>
+          <div class="flashcard-example muted" id="cardExample"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deck-actions">
+      <button type="button" class="btn btn-ghost" id="prevBtn">&larr; Prev</button>
+      <button type="button" class="btn btn-danger" id="stillLearningBtn">Still Learning</button>
+      <button type="button" class="btn btn-primary" id="gotItBtn">Got It</button>
+      <button type="button" class="btn btn-ghost" id="nextBtn">Next &rarr;</button>
+    </div>
+
+    <div id="deckEmpty" class="card deck-empty" style="display:none;">
+      <h3>Deck complete</h3>
+      <p id="deckSummary"></p>
+      <button type="button" class="btn btn-primary" id="restartBtn">Restart Deck</button>
+    </div>
+  </div>
+</section>
+
+<script id="flashcards-data" type="application/json">{"levels": ["Foundational", "Intermediate", "Advanced"], "categories": [{"id": "core", "label": "Core Concepts"}, {"id": "networking", "label": "Networking & Systems"}, {"id": "crypto", "label": "Cryptography"}, {"id": "threats", "label": "Threats & Social Engineering"}, {"id": "defense", "label": "Defense & Best Practices"}], "cards": [{"id": "core-01", "category": "core", "level": "Foundational", "term": "CIA Triad", "definition": "The three core goals security is built around: Confidentiality, Integrity, and Availability.", "example": "A security control almost always exists to protect one of these three."}, {"id": "core-02", "category": "core", "level": "Foundational", "term": "Confidentiality", "definition": "Ensuring information is only accessible to people who are authorized to see it.", "example": "Encrypting a file so only someone with the key can read it."}, {"id": "core-03", "category": "core", "level": "Foundational", "term": "Integrity", "definition": "Ensuring data hasn't been altered or tampered with, whether by accident or on purpose.", "example": "A hash check confirming a downloaded file wasn't corrupted or modified."}, {"id": "core-04", "category": "core", "level": "Foundational", "term": "Availability", "definition": "Ensuring systems and data are accessible to authorized users when they need them.", "example": "A DDoS attack is fundamentally an attack on availability."}, {"id": "core-05", "category": "core", "level": "Foundational", "term": "Threat", "definition": "Any potential danger that could exploit a vulnerability and cause harm.", "example": "A hacker, a piece of malware, or even a natural disaster can all be threats."}, {"id": "core-06", "category": "core", "level": "Foundational", "term": "Vulnerability", "definition": "A weakness in a system, process, or person that a threat could exploit.", "example": "Unpatched software, a weak password, or an untrained employee."}, {"id": "core-07", "category": "core", "level": "Intermediate", "term": "Risk", "definition": "The combination of how likely a threat is to exploit a vulnerability and how much damage it would cause.", "example": "Risk = Likelihood x Impact -- a common way security teams prioritize what to fix first."}, {"id": "core-08", "category": "core", "level": "Intermediate", "term": "Authentication vs. Authorization", "definition": "Authentication proves who you are (logging in); authorization decides what you're allowed to do once you're in.", "example": "Your password authenticates you; your account role authorizes what files you can open."}, {"id": "core-09", "category": "core", "level": "Advanced", "term": "Non-repudiation", "definition": "A guarantee that someone can't credibly deny having performed an action, usually backed by logs or digital signatures.", "example": "A signed email proves the sender actually sent it and can't later claim they didn't."}, {"id": "core-10", "category": "core", "level": "Advanced", "term": "Zero Trust", "definition": "A security model that assumes no user or device should be trusted by default, even inside the network -- every request is verified explicitly.", "example": "\"Never trust, always verify,\" instead of trusting anything already inside the firewall."}, {"id": "net-01", "category": "networking", "level": "Foundational", "term": "Firewall", "definition": "A system that monitors and controls incoming and outgoing network traffic based on defined security rules.", "example": "Blocking all inbound traffic except on the ports a web server actually needs."}, {"id": "net-02", "category": "networking", "level": "Foundational", "term": "Port", "definition": "A virtual endpoint (numbered 0-65535) that identifies a specific service running on a device.", "example": "Port 443 is the standard port for HTTPS; port 22 is standard for SSH."}, {"id": "net-03", "category": "networking", "level": "Foundational", "term": "VPN", "definition": "A Virtual Private Network that creates an encrypted tunnel for your traffic, hiding its contents from others on the network path.", "example": "Using a VPN on public Wi-Fi so the cafe's network can't see your traffic."}, {"id": "net-04", "category": "networking", "level": "Foundational", "term": "DNS", "definition": "The Domain Name System, which translates human-readable domain names into the IP addresses computers actually use.", "example": "Typing example.com and DNS resolving it to something like 93.184.216.34."}, {"id": "net-05", "category": "networking", "level": "Foundational", "term": "IP Address", "definition": "A numerical label assigned to a device on a network, used to identify and locate it.", "example": "192.168.1.1 is a common address for a home router."}, {"id": "net-06", "category": "networking", "level": "Intermediate", "term": "TCP vs. UDP", "definition": "TCP is connection-oriented and reliable (it confirms delivery); UDP is connectionless and faster but doesn't guarantee delivery.", "example": "Web pages use TCP for reliability; live video calls often use UDP for speed."}, {"id": "net-07", "category": "networking", "level": "Intermediate", "term": "Network Segmentation", "definition": "Dividing a network into smaller, isolated zones so a breach in one segment doesn't automatically expose everything else.", "example": "Keeping smart-home IoT devices on a separate network from personal computers."}, {"id": "net-08", "category": "networking", "level": "Intermediate", "term": "DMZ (Networking)", "definition": "A network segment that sits between a trusted internal network and an untrusted external network, hosting public-facing services.", "example": "A company's public web server often sits in a DMZ, not directly on the internal network."}, {"id": "net-09", "category": "networking", "level": "Advanced", "term": "IDS vs. IPS", "definition": "An Intrusion Detection System monitors traffic and alerts on suspicious activity; an Intrusion Prevention System actively blocks it in real time.", "example": "An IDS is a smoke alarm; an IPS is a sprinkler system."}, {"id": "net-10", "category": "networking", "level": "Advanced", "term": "VLAN", "definition": "A Virtual Local Area Network that logically segments a physical network without requiring separate physical hardware.", "example": "Splitting one physical switch into separate \"guest\" and \"staff\" networks."}, {"id": "crypto-01", "category": "crypto", "level": "Foundational", "term": "Encryption", "definition": "Converting readable data (plaintext) into unreadable data (ciphertext) using an algorithm and a key.", "example": "AES-256 is a widely used modern encryption algorithm."}, {"id": "crypto-02", "category": "crypto", "level": "Foundational", "term": "Symmetric Encryption", "definition": "Encryption that uses the exact same key to both encrypt and decrypt data.", "example": "AES is symmetric -- whoever has the key can both lock and unlock the data."}, {"id": "crypto-03", "category": "crypto", "level": "Foundational", "term": "Hashing", "definition": "A one-way function that converts data into a fixed-length string. It's designed to never be reversed back to the original.", "example": "Websites store a hash of your password, not the password itself."}, {"id": "crypto-04", "category": "crypto", "level": "Intermediate", "term": "Asymmetric Encryption", "definition": "Encryption using a mathematically linked key pair: a public key to encrypt, and a separate private key to decrypt.", "example": "RSA is a common asymmetric algorithm; you can share your public key freely."}, {"id": "crypto-05", "category": "crypto", "level": "Intermediate", "term": "Salt (Cryptography)", "definition": "Random data added to a password before it's hashed, so two identical passwords never produce identical hashes.", "example": "Salting defeats precomputed \"rainbow table\" attacks against password hashes."}, {"id": "crypto-06", "category": "crypto", "level": "Intermediate", "term": "TLS/SSL", "definition": "The protocol that encrypts data in transit between a browser and a server -- the \"S\" in HTTPS.", "example": "The padlock icon in your browser means the connection is using TLS."}, {"id": "crypto-07", "category": "crypto", "level": "Advanced", "term": "Digital Signature", "definition": "A cryptographic proof, created with a private key, that a message came from a specific sender and wasn't altered.", "example": "Software updates are often digitally signed so your computer can verify they're genuine."}, {"id": "crypto-08", "category": "crypto", "level": "Advanced", "term": "PKI", "definition": "Public Key Infrastructure: the full system of certificates, certificate authorities, and keys that makes asymmetric encryption work at scale.", "example": "PKI is what lets your browser trust that a website's HTTPS certificate is legitimate."}, {"id": "threat-01", "category": "threats", "level": "Foundational", "term": "Phishing", "definition": "A social engineering attack using fake emails or messages to trick someone into revealing information or clicking a malicious link.", "example": "A fake 'your password expires in 2 hours' email urging you to click a link immediately."}, {"id": "threat-02", "category": "threats", "level": "Foundational", "term": "Malware", "definition": "Any software designed to damage, disrupt, or gain unauthorized access to a system.", "example": "Viruses, worms, and trojans are all types of malware."}, {"id": "threat-03", "category": "threats", "level": "Foundational", "term": "Ransomware", "definition": "Malware that encrypts a victim's files and demands payment in exchange for the decryption key.", "example": "Regular offline backups are one of the best defenses against ransomware."}, {"id": "threat-04", "category": "threats", "level": "Foundational", "term": "Social Engineering", "definition": "Manipulating people -- rather than exploiting technical flaws -- into giving up information or access.", "example": "Impersonating a company's CEO in an email to pressure an employee into an urgent request."}, {"id": "threat-05", "category": "threats", "level": "Intermediate", "term": "DDoS Attack", "definition": "A Distributed Denial of Service attack that floods a system with traffic from many sources at once, making it unavailable to real users.", "example": "An attack on availability -- one of the three pillars of the CIA triad."}, {"id": "threat-06", "category": "threats", "level": "Intermediate", "term": "Man-in-the-Middle Attack", "definition": "An attacker secretly intercepts, and possibly alters, communication between two parties who believe they're talking directly to each other.", "example": "Intercepting unencrypted traffic on an open public Wi-Fi network."}, {"id": "threat-07", "category": "threats", "level": "Advanced", "term": "SQL Injection", "definition": "An attack that inserts malicious SQL code into an input field to manipulate or extract data from a database.", "example": "One of the reasons every user input should be validated and never trusted directly."}, {"id": "threat-08", "category": "threats", "level": "Advanced", "term": "Zero-Day", "definition": "A vulnerability that's unknown to the software vendor -- and therefore has no patch yet -- at the time it's being exploited.", "example": "Zero-days are especially dangerous because there's no existing fix to apply."}, {"id": "def-01", "category": "defense", "level": "Foundational", "term": "MFA / 2FA", "definition": "Multi-Factor (or Two-Factor) Authentication: requiring more than one form of proof of identity before granting access.", "example": "A password plus a one-time code sent to your phone."}, {"id": "def-02", "category": "defense", "level": "Foundational", "term": "Least Privilege", "definition": "Giving users and systems only the minimum access they need to do their job -- nothing more.", "example": "An intern account shouldn't have admin rights to the entire company database."}, {"id": "def-03", "category": "defense", "level": "Foundational", "term": "Patch Management", "definition": "The ongoing process of applying software updates that fix known security vulnerabilities.", "example": "Most major breaches exploit vulnerabilities a patch already existed for."}, {"id": "def-04", "category": "defense", "level": "Foundational", "term": "Security Awareness Training", "definition": "Teaching people to recognize and respond to threats like phishing, since humans are frequently the weakest link in a security chain.", "example": "A simulated phishing campaign is one common form of this training."}, {"id": "def-05", "category": "defense", "level": "Intermediate", "term": "3-2-1 Backup Rule", "definition": "A backup strategy: keep 3 copies of your data, on 2 different types of media, with 1 copy stored off-site.", "example": "Original file, an external hard drive copy, and a cloud backup."}, {"id": "def-06", "category": "defense", "level": "Intermediate", "term": "Defense in Depth", "definition": "Layering multiple, independent security controls so that if one fails, others still protect the system.", "example": "A firewall, endpoint antivirus, and MFA together -- not relying on any single layer."}, {"id": "def-07", "category": "defense", "level": "Advanced", "term": "Incident Response Plan", "definition": "A predefined, documented plan for how an organization detects, contains, and recovers from a security incident.", "example": "Having this ready before a breach happens turns chaos into a checklist."}, {"id": "def-08", "category": "defense", "level": "Advanced", "term": "Principle of Least Functionality", "definition": "Configuring systems to provide only the capabilities they actually need, disabling unused services and ports to reduce the attack surface.", "example": "Turning off an unused remote-access service on a server nobody actually uses."}]}</script>
+<script src="static/js/flashcards.js"></script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

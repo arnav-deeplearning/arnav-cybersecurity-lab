@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="apps.html">&larr; All apps</a>
+    <div class="section-head">
+      <span class="eyebrow">Learn &amp; Practice</span>
+      <h2>{{ project.icon }} {{ project.title }}</h2>
+      <p>{{ project.description }} Every decode below runs a real, working implementation of the algorithm -- nothing is a hardcoded lookup.</p>
+    </div>
+
+    <div class="cipher-level-tracker" id="levelTracker"></div>
+
+    <div class="card cipher-card" id="cipherCard">
+      <span class="flashcard-level" id="cipherMethod"></span>
+      <h3 id="cipherTitle"></h3>
+      <p class="muted" id="cipherIntro"></p>
+      <div class="cipher-text" id="cipherText"></div>
+
+      <div class="demo-field">
+        <label for="cipherGuess">Your decoded answer</label>
+        <input type="text" id="cipherGuess" placeholder="Type what you think this says">
+      </div>
+
+      <div class="demo-actions">
+        <button type="button" class="btn btn-primary" id="checkAnswerBtn">Check Answer</button>
+        <button type="button" class="btn btn-ghost" id="hintBtn">Show Hint</button>
+        <button type="button" class="btn btn-ghost" id="revealBtn">Reveal &amp; Explain</button>
+      </div>
+
+      <div class="demo-result" id="cipherResult"></div>
+      <div class="cipher-explanation" id="cipherExplanation" style="display:none;"></div>
+
+      <button type="button" class="btn btn-primary" id="nextLevelBtn" style="display:none; margin-top: 14px;">Next Challenge &rarr;</button>
+    </div>
+
+    <div class="card deck-empty" id="cipherComplete" style="display:none;">
+      <h3>All challenges solved</h3>
+      <p>You decoded every message using the actual algorithms -- Caesar shifting, ROT13, Base64, hex, and a combination of two of them.</p>
+      <button type="button" class="btn btn-primary" id="restartCipherBtn">Restart</button>
+    </div>
+  </div>
+</section>
+
+<script src="static/js/cipher-challenge.js"></script>
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Security Checkup | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="apps.html">&larr; All apps</a>
+    <div class="section-head">
+      <span class="eyebrow">Learn &amp; Practice</span>
+      <h2>✅ Personal Security Checkup</h2>
+      <p>A self-assessment of your own security habits -- passwords, 2FA, updates, backups -- that scores you and gives specific, non-judgmental next steps.</p>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Your answers never leave your device.</strong>
+      <p>This isn't a test with a "right" answer to report anywhere -- it's a private self-check. Your answers and score are stored only in your own browser's local storage, never sent or logged anywhere.</p>
+    </div>
+
+    <div id="checkupIntro">
+      <p class="muted">12 quick questions about your actual habits, across 4 areas. Answer honestly -- the goal is a useful score, not a flattering one.</p>
+      <button type="button" class="btn btn-primary" id="startCheckupBtn">Start Checkup</button>
+    </div>
+
+    <div id="checkupPlay" style="display:none;">
+      <div class="deck-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label muted" id="progressLabel"></div>
+      </div>
+      <div class="card quiz-question-card">
+        <span class="flashcard-level" id="questionCategory"></span>
+        <h3 id="questionText"></h3>
+        <div class="quiz-options" id="checkupOptions"></div>
+      </div>
+    </div>
+
+    <div id="checkupResults" style="display:none;">
+      <div class="section-head">
+        <h3>Your results</h3>
+      </div>
+      <div class="click-rate-banner" id="overallScore"></div>
+      <div class="category-breakdown" id="categoryBreakdown"></div>
+      <div class="section-head" style="margin-top: 28px;">
+        <h3>What to work on</h3>
+      </div>
+      <ul class="red-flag-list" id="checkupTips"></ul>
+      <button type="button" class="btn btn-primary" id="retakeBtn" style="margin-top: 16px;">Retake Checkup</button>
+    </div>
+  </div>
+</section>
+
+<script src="static/js/security-checkup.js"></script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

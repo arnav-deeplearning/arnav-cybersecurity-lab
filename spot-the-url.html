@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spot the Fake URL | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="apps.html">&larr; All apps</a>
+    <div class="section-head">
+      <span class="eyebrow">Learn &amp; Practice</span>
+      <h2>🔍 Spot the Fake URL</h2>
+      <p>A fast-paced game: is this web address legitimate or a lookalike? Learn to spot typosquatting, fake subdomains, and other URL tricks.</p>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>All companies below are fictional.</strong>
+      <p>NorthPeak Corp, CloudSend, PixelLoop, and ShopNest are made-up example brands used only to teach the pattern -- none of these are real companies or real websites.</p>
+    </div>
+
+    <div id="urlIntro">
+      <button type="button" class="btn btn-primary" id="startUrlGameBtn">Start</button>
+    </div>
+
+    <div id="urlPlay" style="display:none;">
+      <div class="deck-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label muted" id="progressLabel"></div>
+      </div>
+
+      <div class="card url-card">
+        <div class="url-display" id="urlDisplay"></div>
+        <div class="demo-actions url-actions">
+          <button type="button" class="btn btn-primary" id="safeBtn">&#9989; Looks Safe</button>
+          <button type="button" class="btn btn-danger" id="suspiciousBtn">&#128681; Suspicious</button>
+        </div>
+        <div class="demo-result" id="urlResult"></div>
+        <button type="button" class="btn btn-ghost" id="nextUrlBtn" style="display:none; margin-top: 10px;">Next &rarr;</button>
+      </div>
+    </div>
+
+    <div id="urlResults" class="card deck-empty" style="display:none;">
+      <h3>Game complete</h3>
+      <p id="urlResultsSummary"></p>
+      <div id="urlReview"></div>
+      <button type="button" class="btn btn-primary" id="restartUrlGameBtn">Play Again</button>
+    </div>
+  </div>
+</section>
+
+<script src="static/js/spot-the-url.js"></script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

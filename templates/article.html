@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container narrow">
+    <a class="back-link" href="articles.html">&larr; All articles</a>
+    <div class="section-head">
+      <div class="article-meta">{{ article.date }} &middot; {{ article.read_time }}</div>
+      <h2>{{ article.title }}</h2>
+      <div class="tag-row">
+        {% for tag in article.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="prose article-body">
+      {% for paragraph in paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

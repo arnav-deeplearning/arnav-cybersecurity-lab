@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Apps | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom: 20px;">
+  <div class="container">
+    <span class="eyebrow">Blue team &middot; Tool dev &middot; White hat &middot; Learn &amp; practice</span>
+    <h1>All Apps</h1>
+    <p class="hero-lede">{{ site.mission }}</p>
+  </div>
+</section>
+
+{% for category in categories %}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ category.icon }} {{ category.label }}</h2>
+    </div>
+    <div class="project-grid">
+      {% for project in projects if project.category == category.id %}
+      {% if project.status == "live" %}
+      <a class="card project-card" href="{{ project.href }}">
+      {% else %}
+      <div class="card project-card is-disabled">
+      {% endif %}
+        <div class="card-top">
+          <span class="card-icon">{{ project.icon }}</span>
+          <span class="badge badge-{{ project.status }}">{{ status_labels[project.status] }}</span>
+        </div>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="tag-row">
+          {% for tag in project.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% if project.status == "live" %}
+      </a>
+      {% else %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+{% endblock %}

@@ -19,8 +19,10 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="active">Projects</a></li>
-          <li><a href="about.html" class="">About</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
         </ul>
       </nav>
     </div>
@@ -29,139 +31,139 @@
   <main>
 
 <section class="hero">
-  <div class="container">
-    <span class="eyebrow">Blue team &middot; Tool dev &middot; White hat</span>
-    <h1>Cybersecurity Lab</h1>
-    <p class="hero-lede">A hands-on log of cybersecurity projects, from home network defense to writing real cryptography in Python. Everything here is either working code you can read, or a documented write-up of something actually built and tested -- nothing is aspirational marketing copy.</p>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Cybersecurity Lab &middot; Personal site</span>
+      <h1>Hi, I'm Arnav.<br><span class="highlight">I'm learning to break (and defend) things.</span></h1>
+      <p class="hero-lede">A hands-on log of cybersecurity projects, from home network defense to writing real cryptography in Python. Everything here is either working code you can read, or a documented write-up of something actually built and tested -- nothing is aspirational marketing copy.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="apps.html">Explore the Apps</a>
+        <a class="btn btn-ghost" href="articles.html">Read My Articles</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">Senior</div>
+          <div class="label">Grade</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">AP</div>
+          <div class="label">AP Cybersecurity</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">6</div>
+          <div class="label">Apps built</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card card">
+      <div class="hero-card-label">Course path</div>
+      <div class="course-path">
+        <div class="course-step">
+          <span class="course-dot"></span>
+          <div>
+            <div class="course-name">Cybersecurity I (elective)</div>
+            <div class="muted">Junior year elective</div>
+          </div>
+        </div>
+        <div class="course-connector"></div>
+        <div class="course-step is-current">
+          <span class="course-dot"></span>
+          <div>
+            <div class="course-name">AP Cybersecurity</div>
+            <div class="muted">Senior year &middot; new national AP course, fall 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <div class="section-head">
+      <h2>My cybersecurity journey</h2>
+    </div>
+    <div class="prose">
+      <p>Hi, I&#39;m Arnav -- a high school senior currently taking AP Cybersecurity, after getting hooked during Cybersecurity I, the elective I took the year before. AP Cybersecurity is brand new -- College Board took it national this fall after a smaller pilot last year -- so my class is one of the first cohorts anywhere actually taking it, which is a fun thing to be early to. This site is where I keep track of what I&#39;m learning and build small projects to actually test whether I understand a concept, instead of just being able to define it on a quiz.</p>
+      <p>I got into this from a slightly different angle than most people expect. I&#39;d already been building things with AI and writing software before I ever took a security class, and at some point the obvious question hit me: everything I was building could be broken into. That question -- how do you actually protect something you&#39;ve built, and how do the people trying to break in actually think -- is what pulled me into cybersecurity for real.</p>
+      <p>What I like about this field is that it&#39;s not one skill, it&#39;s a few very different ones stacked on top of each other: you need to understand how systems and networks actually work, you need to think like both the person defending something and the person trying to get past that defense, and you need enough math and code to actually build the tools instead of just reading about them. AP Cybersecurity is where I&#39;m getting the structured, textbook version of all of that. This lab is where I try to turn it into something real.</p>
+      <p>Everything you&#39;ll find here follows one rule: it&#39;s either real, working code with tests, or it&#39;s honestly labeled as &#39;not built yet.&#39; Nothing on this site is aspirational marketing copy, and nothing here targets real systems without authorization -- practice happens on my own devices or on sandboxed platforms built for that purpose.</p>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>🛡️ Defensive Security (Blue Team)</h2>
+      <h2>Why this actually interests me</h2>
     </div>
-    <div class="project-grid">
-      <div class="card project-card is-disabled">
-        <div class="card-top">
-          <span class="card-icon">📊</span>
-          <span class="badge badge-coming-soon">Coming Soon</span>
-        </div>
-        <h3>Log Analysis Dashboard</h3>
-        <p>A dashboard that parses system logs and visually flags failed login attempts and other suspicious patterns.</p>
-        <div class="tag-row">
-          <span class="tag">Blue team</span>
-          <span class="tag">Log analysis</span>
-        </div>
+    <div class="why-grid">
+      <div class="card why-card">
+        <span class="card-icon">🧩</span>
+        <h3>It&#39;s genuinely interesting</h3>
+        <p>Security sits at the intersection of psychology (how scams actually work on people), math (cryptography), and systems thinking (how one small misconfiguration cascades into a breach). Almost nothing else I study touches all three.</p>
       </div>
-      <div class="card project-card is-disabled">
-        <div class="card-top">
-          <span class="card-icon">📡</span>
-          <span class="badge badge-hands-on">In Progress (hands-on)</span>
-        </div>
-        <h3>Home Lab Network Monitor</h3>
-        <p>A Raspberry Pi running Zeek/Wireshark on the home network, alerting on unusual traffic or unrecognized devices. Write-up coming once it&#39;s set up.</p>
-        <div class="tag-row">
-          <span class="tag">Zeek</span>
-          <span class="tag">Raspberry Pi</span>
-          <span class="tag">Home lab</span>
-        </div>
+      <div class="card why-card">
+        <span class="card-icon">🌐</span>
+        <h3>It matters beyond tech careers</h3>
+        <p>You don&#39;t need to be a &#39;computer person&#39; to need security awareness -- every single career now runs on accounts, devices, and data. The self-assessment app on this site exists because I think this stuff is genuinely useful to know, not just to me.</p>
       </div>
-      <div class="card project-card is-disabled">
-        <div class="card-top">
-          <span class="card-icon">🧱</span>
-          <span class="badge badge-hands-on">In Progress (hands-on)</span>
-        </div>
-        <h3>Custom Firewall (pfSense/OPNsense)</h3>
-        <p>A dedicated open-source firewall segmenting the home network, isolating IoT devices from personal computers. Write-up coming once it&#39;s set up.</p>
-        <div class="tag-row">
-          <span class="tag">pfSense</span>
-          <span class="tag">Network segmentation</span>
-        </div>
+      <div class="card why-card">
+        <span class="card-icon">🤖</span>
+        <h3>AI is changing both sides of it</h3>
+        <p>AI is making both attacks (better-written phishing, deepfakes) and defenses (faster log analysis, anomaly detection) more powerful at the same time. Combining my interest in AI with security feels like the right place to be paying attention right now.</p>
       </div>
     </div>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>💻 Security Tool Development</h2>
+      <h2>A few apps to try</h2>
+      <p>All six learning apps are free, run entirely in your browser, and store nothing but your own local progress.</p>
     </div>
     <div class="project-grid">
-      <a class="card project-card" href="password-manager.html">
+      <a class="card project-card" href="flashcards.html">
         <div class="card-top">
-          <span class="card-icon">🔐</span>
+          <span class="card-icon">🃏</span>
           <span class="badge badge-live">Live</span>
         </div>
-        <h3>Local Password Manager</h3>
-        <p>A command-line password manager written in Python with real AES-256-GCM encryption behind a master password -- no plaintext ever touches disk.</p>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">AES-256</span>
-          <span class="tag">Cryptography</span>
-        </div>
+        <h3>Cybersecurity Flashcards</h3>
+        <p>Flip through core cybersecurity terms and concepts, leveled from Foundational to Advanced -- the same vocabulary AP Cybersecurity actually tests.</p>
       </a>
-      <div class="card project-card is-disabled">
+      <a class="card project-card" href="quiz.html">
         <div class="card-top">
-          <span class="card-icon">📡</span>
-          <span class="badge badge-coming-soon">Coming Soon</span>
+          <span class="card-icon">🎯</span>
+          <span class="badge badge-live">Live</span>
         </div>
-        <h3>Packet Sniffer / Scanner</h3>
-        <p>A lightweight network scanner using Python and Scapy to identify open ports and active devices on a local network.</p>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">Scapy</span>
-          <span class="tag">Networking</span>
-        </div>
-      </div>
-      <div class="card project-card is-disabled">
+        <h3>Cybersecurity Knowledge Quiz</h3>
+        <p>Test your knowledge and security awareness with leveled quizzes covering concepts, threats, and best practices.</p>
+      </a>
+      <a class="card project-card" href="password-strength.html">
         <div class="card-top">
-          <span class="card-icon">💬</span>
-          <span class="badge badge-coming-soon">Coming Soon</span>
+          <span class="card-icon">💪</span>
+          <span class="badge badge-live">Live</span>
         </div>
-        <h3>Encrypted Chat Program</h3>
-        <p>A peer-to-peer chat app using RSA public/private key pairs for end-to-end encryption, so messages can&#39;t be read in transit.</p>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">RSA</span>
-          <span class="tag">E2EE</span>
-        </div>
-      </div>
+        <h3>Password Strength &amp; Entropy Analyzer</h3>
+        <p>Type a password and see its real entropy in bits, an estimated crack time, and exactly why it&#39;s weak or strong. Nothing you type ever leaves your browser.</p>
+      </a>
     </div>
+    <p style="margin-top: 20px;"><a href="apps.html">See all apps &rarr;</a></p>
   </div>
 </section>
+
 <section class="section">
-  <div class="container">
+  <div class="container narrow">
     <div class="section-head">
-      <h2>🌐 Offensive Security &amp; Education (White Hat)</h2>
+      <h2>How this site works</h2>
     </div>
-    <div class="project-grid">
-      <a class="card project-card" href="phishing-simulator.html">
-        <div class="card-top">
-          <span class="card-icon">🎣</span>
-          <span class="badge badge-live">Live</span>
-        </div>
-        <h3>Phishing Simulator (Sandbox Demo)</h3>
-        <p>A fully synthetic demo of a phishing-awareness tool -- fake inbox, fake test recipients, real click-tracking dashboard. No real email is ever sent to a real person by this demo.</p>
-        <div class="tag-row">
-          <span class="tag">Security awareness</span>
-          <span class="tag">Sandbox only</span>
-        </div>
-      </a>
-      <div class="card project-card is-disabled">
-        <div class="card-top">
-          <span class="card-icon">📝</span>
-          <span class="badge badge-hands-on">In Progress (hands-on)</span>
-        </div>
-        <h3>Vulnerability Write-ups</h3>
-        <p>Technical write-ups documenting vulnerabilities found and patched in sandboxed environments like VulnHub and Hack The Box.</p>
-        <div class="tag-row">
-          <span class="tag">VulnHub</span>
-          <span class="tag">Hack The Box</span>
-          <span class="tag">CTF</span>
-        </div>
-      </div>
-    </div>
+    <ul class="ground-rules-list">
+      <li>Home network tools (the network monitor, the firewall) only ever run against this lab&#39;s own network -- never anyone else&#39;s.</li>
+      <li>Any offensive-security practice happens exclusively on sandboxed platforms built for that purpose (like PicoCTF, TryHackMe, or OverTheWire), never against real third-party systems.</li>
+      <li>The phishing-simulator and URL-safety apps are fully synthetic sandboxes -- fake recipients, fictional brands, no real email or real websites involved.</li>
+      <li>Nothing on this site collects, stores, or transmits real personal data. Quiz scores, flashcard progress, and self-assessment answers all stay in your own browser&#39;s local storage.</li>
+    </ul>
   </div>
 </section>
 

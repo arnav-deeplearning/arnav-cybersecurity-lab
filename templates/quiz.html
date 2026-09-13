@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="apps.html">&larr; All apps</a>
+    <div class="section-head">
+      <span class="eyebrow">Learn &amp; Practice</span>
+      <h2>{{ project.icon }} {{ project.title }}</h2>
+      <p>{{ project.description }}</p>
+    </div>
+
+    <div id="quizSetup">
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="levelSelect">Level</label>
+          <select id="levelSelect">
+            <option value="all">All levels</option>
+            {% for level in levels %}
+            <option value="{{ level }}">{{ level }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="categorySelect">Category</label>
+          <select id="categorySelect">
+            <option value="all">All categories</option>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <p class="muted" id="questionCountLabel"></p>
+      <button type="button" class="btn btn-primary" id="startQuizBtn">Start Quiz</button>
+      <p class="muted best-score" id="bestScoreLabel"></p>
+    </div>
+
+    <div id="quizPlay" style="display:none;">
+      <div class="deck-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label muted" id="progressLabel"></div>
+      </div>
+
+      <div class="card quiz-question-card">
+        <span class="flashcard-level" id="questionLevel"></span>
+        <h3 id="questionText"></h3>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-explanation" id="quizExplanation" style="display:none;"></div>
+      </div>
+
+      <div class="deck-actions">
+        <button type="button" class="btn btn-primary" id="nextQuestionBtn" style="display:none;">Next Question &rarr;</button>
+      </div>
+    </div>
+
+    <div id="quizResults" class="card deck-empty" style="display:none;">
+      <h3>Quiz complete</h3>
+      <p id="resultsSummary"></p>
+      <button type="button" class="btn btn-primary" id="retryQuizBtn">Try Again</button>
+    </div>
+  </div>
+</section>
+
+<script id="quiz-data" type="application/json">{{ quiz_json | safe }}</script>
+<script src="static/js/quiz.js"></script>
+{% endblock %}

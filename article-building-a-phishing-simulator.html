@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Built a Phishing Simulator for This Site — Here&#39;s What It Taught Me | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container narrow">
+    <a class="back-link" href="articles.html">&larr; All articles</a>
+    <div class="section-head">
+      <div class="article-meta">2026-07-24 &middot; 6 min read</div>
+      <h2>I Built a Phishing Simulator for This Site — Here&#39;s What It Taught Me</h2>
+      <div class="tag-row">
+        <span class="tag">Projects</span>
+        <span class="tag">Social Engineering</span>
+      </div>
+    </div>
+    <div class="prose article-body">
+      <p>For one of the apps on this site, I built a phishing simulator -- a tool that sends a simulated phishing campaign against fictional test personas and reports a click rate. I want to be upfront about something first: it&#x27;s fully synthetic. There is no networking code in it at all -- no way to send a real email to a real person, on purpose. I wanted the tool to be structurally incapable of being misused, not just responsibly used.</p>
+      <p>What I didn&#x27;t expect was how much I&#x27;d learn from writing the fake emails themselves. I assumed the hard part would be the simulation logic -- the code deciding who statistically &#x27;clicks.&#x27; That part took maybe twenty minutes. Writing three convincing phishing emails took most of an afternoon, because it forced me to actually think like someone trying to manipulate a reader instead of someone writing a normal email.</p>
+      <p>The most obvious template I wrote -- a fake prize notification -- was almost boring to design. Urgency, a reward, a countdown. Anyone who&#x27;s used the internet for five years has some instinct against that one. But the one modeled after &#x27;CEO fraud&#x27; -- a short, casual message that appears to be from a company&#x27;s CEO, asking someone to quickly buy gift cards -- that one bothered me. It doesn&#x27;t look scary. It doesn&#x27;t use any urgency tricks that are obvious on the surface. It works by borrowing someone&#x27;s authority and their busy schedule as an excuse for why you shouldn&#x27;t ask questions. When I ran the simulation against my synthetic test personas, that template consistently got the highest click rate, by a lot -- which matched what I&#x27;d read about how real-world CEO fraud actually performs against real organizations.</p>
+      <p>That was the actual lesson, and it wasn&#x27;t a technical one: the most dangerous phishing isn&#x27;t the one that looks like a scam. It&#x27;s the one that looks like a completely ordinary message from someone you&#x27;d normally trust, asking for something slightly unusual, with just enough urgency that stopping to double-check feels awkward. The fix isn&#x27;t &#x27;be more suspicious of scary emails.&#x27; It&#x27;s &#x27;when a request involves money, credentials, or access, verify it through a second channel -- even if that means the mildly uncomfortable step of just calling the person and asking if they actually sent it.&#x27;</p>
+      <p>I came out of that project more convinced that phishing awareness training actually matters, and less convinced that it&#x27;s mostly about spotting bad grammar or sketchy links. The best fake emails don&#x27;t have either.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

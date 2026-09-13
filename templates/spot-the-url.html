@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="apps.html">&larr; All apps</a>
+    <div class="section-head">
+      <span class="eyebrow">Learn &amp; Practice</span>
+      <h2>{{ project.icon }} {{ project.title }}</h2>
+      <p>{{ project.description }}</p>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>All companies below are fictional.</strong>
+      <p>NorthPeak Corp, CloudSend, PixelLoop, and ShopNest are made-up example brands used only to teach the pattern -- none of these are real companies or real websites.</p>
+    </div>
+
+    <div id="urlIntro">
+      <button type="button" class="btn btn-primary" id="startUrlGameBtn">Start</button>
+    </div>
+
+    <div id="urlPlay" style="display:none;">
+      <div class="deck-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label muted" id="progressLabel"></div>
+      </div>
+
+      <div class="card url-card">
+        <div class="url-display" id="urlDisplay"></div>
+        <div class="demo-actions url-actions">
+          <button type="button" class="btn btn-primary" id="safeBtn">&#9989; Looks Safe</button>
+          <button type="button" class="btn btn-danger" id="suspiciousBtn">&#128681; Suspicious</button>
+        </div>
+        <div class="demo-result" id="urlResult"></div>
+        <button type="button" class="btn btn-ghost" id="nextUrlBtn" style="display:none; margin-top: 10px;">Next &rarr;</button>
+      </div>
+    </div>
+
+    <div id="urlResults" class="card deck-empty" style="display:none;">
+      <h3>Game complete</h3>
+      <p id="urlResultsSummary"></p>
+      <div id="urlReview"></div>
+      <button type="button" class="btn btn-primary" id="restartUrlGameBtn">Play Again</button>
+    </div>
+  </div>
+</section>
+
+<script src="static/js/spot-the-url.js"></script>
+{% endblock %}

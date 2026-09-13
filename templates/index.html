@@ -2,46 +2,116 @@
 {% block content %}
 
 <section class="hero">
-  <div class="container">
-    <span class="eyebrow">Blue team &middot; Tool dev &middot; White hat</span>
-    <h1>Cybersecurity Lab</h1>
-    <p class="hero-lede">{{ site.mission }}</p>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Cybersecurity Lab &middot; Personal site</span>
+      <h1>Hi, I'm Arnav.<br><span class="highlight">I'm learning to break (and defend) things.</span></h1>
+      <p class="hero-lede">{{ site.mission }}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="apps.html">Explore the Apps</a>
+        <a class="btn btn-ghost" href="articles.html">Read My Articles</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">{{ profile.grade }}</div>
+          <div class="label">Grade</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">AP</div>
+          <div class="label">{{ profile.current_course }}</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">6</div>
+          <div class="label">Apps built</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card card">
+      <div class="hero-card-label">Course path</div>
+      <div class="course-path">
+        <div class="course-step">
+          <span class="course-dot"></span>
+          <div>
+            <div class="course-name">{{ profile.prior_course }}</div>
+            <div class="muted">Junior year elective</div>
+          </div>
+        </div>
+        <div class="course-connector"></div>
+        <div class="course-step is-current">
+          <span class="course-dot"></span>
+          <div>
+            <div class="course-name">{{ profile.current_course }}</div>
+            <div class="muted">Senior year &middot; new national AP course, fall 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-{% for category in categories %}
+<section class="section">
+  <div class="container narrow">
+    <div class="section-head">
+      <h2>My cybersecurity journey</h2>
+    </div>
+    <div class="prose">
+      {% for paragraph in intro_paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>{{ category.icon }} {{ category.label }}</h2>
+      <h2>Why this actually interests me</h2>
+    </div>
+    <div class="why-grid">
+      {% for item in why_this_matters %}
+      <div class="card why-card">
+        <span class="card-icon">{{ item.icon }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>A few apps to try</h2>
+      <p>All six learning apps are free, run entirely in your browser, and store nothing but your own local progress.</p>
     </div>
     <div class="project-grid">
-      {% for project in projects if project.category == category.id %}
-      {% if project.status == "live" %}
+      {% for project in featured_projects %}
       <a class="card project-card" href="{{ project.href }}">
-      {% else %}
-      <div class="card project-card is-disabled">
-      {% endif %}
         <div class="card-top">
           <span class="card-icon">{{ project.icon }}</span>
           <span class="badge badge-{{ project.status }}">{{ status_labels[project.status] }}</span>
         </div>
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
-        <div class="tag-row">
-          {% for tag in project.tags %}
-          <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-      {% if project.status == "live" %}
       </a>
-      {% else %}
-      </div>
-      {% endif %}
       {% endfor %}
     </div>
+    <p style="margin-top: 20px;"><a href="apps.html">See all apps &rarr;</a></p>
   </div>
 </section>
-{% endfor %}
+
+<section class="section">
+  <div class="container narrow">
+    <div class="section-head">
+      <h2>How this site works</h2>
+    </div>
+    <ul class="ground-rules-list">
+      {% for rule in ground_rules %}
+      <li>{{ rule }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
 {% endblock %}

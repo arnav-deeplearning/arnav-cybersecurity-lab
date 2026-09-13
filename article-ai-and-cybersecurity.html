@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How AI Is Changing Both Sides of Cybersecurity | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Home</a></li>
+          <li><a href="apps.html" class="">Apps</a></li>
+          <li><a href="articles.html" class="">Articles</a></li>
+          <li><a href="resources.html" class="">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container narrow">
+    <a class="back-link" href="articles.html">&larr; All articles</a>
+    <div class="section-head">
+      <div class="article-meta">2026-09-04 &middot; 6 min read</div>
+      <h2>How AI Is Changing Both Sides of Cybersecurity</h2>
+      <div class="tag-row">
+        <span class="tag">AI</span>
+        <span class="tag">Trends</span>
+      </div>
+    </div>
+    <div class="prose article-body">
+      <p>Most of my writing and building before cybersecurity was in AI, so I probably notice this intersection more than most people would. AI isn&#x27;t just one more tool in the cybersecurity world -- it&#x27;s actively changing both sides of the fight, attack and defense, at the same time, and not always in ways that feel comfortable.</p>
+      <p>On the attack side, the most obvious shift is quality. Phishing emails used to be a reasonably reliable tell -- awkward phrasing, weird grammar, the kind of thing my &#x27;password expiring in 2 hours&#x27; example template leans on for a class demo. A language model can now write a grammatically perfect, contextually appropriate, personalized message in seconds. The &#x27;badly written scam email&#x27; red flag, one of the most commonly taught tells, is quietly becoming less reliable every year. Voice and video deepfakes push this even further -- the CEO fraud pattern I wrote about in my phishing simulator article gets a lot scarier when the &#x27;CEO&#x27; isn&#x27;t just a text message, but a convincing cloned voice on a phone call.</p>
+      <p>On the defense side, the shift is at least as significant. Modern security teams deal with an amount of log and alert data that&#x27;s genuinely impossible for a human analyst to read line by line. Machine learning models trained to spot anomalies -- a login from an unusual location, a pattern of file access that doesn&#x27;t match someone&#x27;s normal behavior -- can surface the handful of alerts that actually matter out of an ocean of noise. That&#x27;s not science fiction; it&#x27;s already how a lot of modern security operations centers function, and it&#x27;s part of why &#x27;log analysis&#x27; is one of the areas I want to keep building projects around.</p>
+      <p>What I find most interesting isn&#x27;t either side alone -- it&#x27;s that this is fundamentally an arms race running at AI speed instead of human speed. Every improvement in AI-assisted attack tooling puts pressure on defenders to adopt AI-assisted detection just to keep pace, and vice versa. I don&#x27;t think that race has an obvious permanent winner, and I&#x27;m skeptical of anyone who claims it does in either direction.</p>
+      <p>My honest takeaway, as someone building small tools on both sides of that line, is that the old advice -- &#x27;watch for bad grammar,&#x27; &#x27;look for a sketchy link&#x27; -- is starting to run out of runway as a primary defense. The more durable version of that advice is behavioral, not surface-level: verify unusual requests through a second channel, question urgency regardless of how polished the message looks, and don&#x27;t assume &#x27;well-written&#x27; means &#x27;legitimate&#x27; anymore. That&#x27;s a harder habit to build than spotting a typo, but it&#x27;s the one that&#x27;s actually going to keep working.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

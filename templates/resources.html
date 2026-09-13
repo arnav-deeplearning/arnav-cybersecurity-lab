@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Resources | {{ site.title }}{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom: 20px;">
+  <div class="container">
+    <span class="eyebrow">Curated &amp; verified</span>
+    <h1>Resources</h1>
+    <p class="hero-lede">
+      Where I actually learn this stuff, and where I pulled context
+      from when building the apps and articles on this site. Every
+      link below was checked by hand -- no guessed or made-up URLs.
+    </p>
+  </div>
+</section>
+
+{% for category in resource_categories %}
+{% set items = resources | selectattr("category", "equalto", category.id) | list %}
+{% if items %}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ category.label }}</h2>
+    </div>
+    <div class="resource-list">
+      {% for resource in items %}
+      <a class="card resource-card" href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
+        <div class="resource-name">{{ resource.name }}</div>
+        <p>{{ resource.description }}</p>
+        <span class="resource-url">{{ resource.url }} &nearr;</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
