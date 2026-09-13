@@ -64,7 +64,7 @@
     </div>
     <div class="why-grid">
       {% for item in why_this_matters %}
-      <div class="card why-card">
+      <div class="card why-card clr-{{ item.color }}">
         <span class="card-icon">{{ item.icon }}</span>
         <h3>{{ item.title }}</h3>
         <p>{{ item.text }}</p>
@@ -82,7 +82,7 @@
     </div>
     <div class="project-grid">
       {% for project in featured_projects %}
-      <a class="card project-card" href="{{ project.href }}">
+      <a class="card project-card cat-{{ project.category }}" href="{{ project.href }}">
         <div class="card-top">
           <span class="card-icon">{{ project.icon }}</span>
           <span class="badge badge-{{ project.status }}">{{ status_labels[project.status] }}</span>

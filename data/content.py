@@ -105,6 +105,7 @@ INTRO_PARAGRAPHS = [
 WHY_THIS_MATTERS = [
     {
         "icon": "\U0001F9E9",
+        "color": "blue",
         "title": "It's genuinely interesting",
         "text": (
             "Security sits at the intersection of psychology (how "
@@ -116,6 +117,7 @@ WHY_THIS_MATTERS = [
     },
     {
         "icon": "\U0001F310",
+        "color": "purple",
         "title": "It matters beyond tech careers",
         "text": (
             "You don't need to be a 'computer person' to need security "
@@ -127,6 +129,7 @@ WHY_THIS_MATTERS = [
     },
     {
         "icon": "\U0001F916",
+        "color": "amber",
         "title": "AI is changing both sides of it",
         "text": (
             "AI is making both attacks (better-written phishing, "

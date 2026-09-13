@@ -14,14 +14,14 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>{{ category.icon }} {{ category.label }}</h2>
+      <h2 class="cat-{{ category.id }}"><span class="cat-dot"></span>{{ category.icon }} {{ category.label }}</h2>
     </div>
     <div class="project-grid">
       {% for project in projects if project.category == category.id %}
       {% if project.status == "live" %}
-      <a class="card project-card" href="{{ project.href }}">
+      <a class="card project-card cat-{{ category.id }}" href="{{ project.href }}">
       {% else %}
-      <div class="card project-card is-disabled">
+      <div class="card project-card cat-{{ category.id }} is-disabled">
       {% endif %}
         <div class="card-top">
           <span class="card-icon">{{ project.icon }}</span>

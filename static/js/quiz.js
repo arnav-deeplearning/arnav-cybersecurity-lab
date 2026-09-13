@@ -87,6 +87,7 @@
 
     var q = pool[index];
     questionLevel.textContent = q.level;
+    questionLevel.className = "flashcard-level lvl-" + q.level.toLowerCase();
     questionText.textContent = q.question;
     progressLabel.textContent = "Question " + (index + 1) + " of " + pool.length + " — Score: " + score;
     progressFill.style.width = Math.round((index / pool.length) * 100) + "%";

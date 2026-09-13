@@ -15,7 +15,7 @@
     <div class="article-list">
       {% for article in articles | sort(attribute="date", reverse=true) %}
       <a class="card article-card" href="article-{{ article.id }}.html">
-        <div class="article-meta">{{ article.date }} &middot; {{ article.read_time }}</div>
+        <div class="article-meta">{{ article.read_time }}</div>
         <h3>{{ article.title }}</h3>
         <p>{{ article.excerpt }}</p>
         <div class="tag-row">

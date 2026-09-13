@@ -74,6 +74,7 @@
 
     var c = deck[index];
     cardLevel.textContent = c.level;
+    cardLevel.className = "flashcard-level lvl-" + c.level.toLowerCase();
     cardTerm.textContent = c.term;
     cardDefinition.textContent = c.definition;
     cardExample.textContent = c.example ? "Example: " + c.example : "";

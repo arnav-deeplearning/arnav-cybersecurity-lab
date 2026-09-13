@@ -20,11 +20,11 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>{{ category.label }}</h2>
+      <h2 class="clr-{{ category.color }}"><span class="cat-dot"></span>{{ category.label }}</h2>
     </div>
     <div class="resource-list">
       {% for resource in items %}
-      <a class="card resource-card" href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
+      <a class="card resource-card clr-{{ category.color }}" href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
         <div class="resource-name">{{ resource.name }}</div>
         <p>{{ resource.description }}</p>
         <span class="resource-url">{{ resource.url }} &nearr;</span>

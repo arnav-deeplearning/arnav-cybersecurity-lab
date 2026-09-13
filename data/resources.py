@@ -8,13 +8,13 @@ articles. No fabricated or guessed links.
 """
 
 RESOURCE_CATEGORIES = [
-    {"id": "official", "label": "Official & Government"},
-    {"id": "standards", "label": "Standards & Frameworks"},
-    {"id": "nonprofit", "label": "Education Nonprofits"},
-    {"id": "news", "label": "News & Journalism"},
-    {"id": "tools", "label": "Practical Safety Tools"},
-    {"id": "certs", "label": "Certifications & Learning Paths"},
-    {"id": "practice", "label": "Hands-On Practice Platforms"},
+    {"id": "official", "label": "Official & Government", "color": "blue"},
+    {"id": "standards", "label": "Standards & Frameworks", "color": "purple"},
+    {"id": "nonprofit", "label": "Education Nonprofits", "color": "green"},
+    {"id": "news", "label": "News & Journalism", "color": "amber"},
+    {"id": "tools", "label": "Practical Safety Tools", "color": "pink"},
+    {"id": "certs", "label": "Certifications & Learning Paths", "color": "blue"},
+    {"id": "practice", "label": "Hands-On Practice Platforms", "color": "purple"},
 ]
 
 RESOURCES = [

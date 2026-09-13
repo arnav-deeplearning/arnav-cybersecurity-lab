@@ -13,10 +13,13 @@ inherit the site's theme automatically.
 """
 from data import phishing_content, resources
 
+PALETTE = ["var(--blue)", "var(--purple)", "var(--amber)", "var(--pink)", "var(--accent)"]
 
-def _bar_chart(title: str, rows: list, unit: str = "%", max_value: float = None) -> str:
+
+def _bar_chart(title: str, rows: list, unit: str = "%", max_value: float = None, colors: list = None) -> str:
     """rows: list of (label, value, sublabel) tuples."""
     max_value = max_value or max(v for _, v, _ in rows) * 1.15
+    colors = colors or [PALETTE[i % len(PALETTE)] for i in range(len(rows))]
     bar_h = 34
     gap = 14
     top_pad = 36
@@ -29,11 +32,12 @@ def _bar_chart(title: str, rows: list, unit: str = "%", max_value: float = None)
     for i, (label, value, sub) in enumerate(rows):
         y = top_pad + i * (bar_h + gap)
         bar_len = max(4, (value / max_value) * chart_w)
+        color = colors[i]
         bars.append(f'''
           <text x="0" y="{y + bar_h / 2 + 5}" fill="var(--text)" font-size="13" font-family="var(--font)">{label}</text>
           <rect x="{label_w}" y="{y}" width="{chart_w}" height="{bar_h}" rx="6" fill="var(--bg)" stroke="var(--border)"/>
-          <rect x="{label_w}" y="{y}" width="{bar_len:.1f}" height="{bar_h}" rx="6" fill="var(--accent)"/>
-          <text x="{label_w + chart_w + 10}" y="{y + bar_h / 2 + 5}" fill="var(--text)" font-size="13" font-weight="700" font-family="var(--font-mono)">{value:g}{unit}</text>
+          <rect x="{label_w}" y="{y}" width="{bar_len:.1f}" height="{bar_h}" rx="6" fill="{color}"/>
+          <text x="{label_w + chart_w + 10}" y="{y + bar_h / 2 + 5}" fill="{color}" font-size="13" font-weight="700" font-family="var(--font-mono)">{value:g}{unit}</text>
           <text x="{label_w}" y="{y + bar_h + 12}" fill="var(--text-muted)" font-size="10.5" font-family="var(--font)">{sub}</text>
         ''')
 
@@ -51,6 +55,10 @@ def phishing_click_rate_chart() -> str:
     averaged across the same synthetic recipient pool. This is the
     true expected value, not a random sample -- reproducible from the
     data already in data/phishing_content.py.
+
+    Bars are colored by how risky that click rate is (red = highest
+    risk, down to green = lowest) rather than one flat color, since
+    the color itself is meaningful here.
     """
     rows = []
     for t in phishing_content.TEMPLATES:
@@ -61,7 +69,8 @@ def phishing_click_rate_chart() -> str:
         avg_pct = round((sum(chances) / len(chances)) * 100, 1)
         rows.append((t["subject"][:30] + ("…" if len(t["subject"]) > 30 else ""), avg_pct, f'Difficulty {t["difficulty"]:.2f}'))
     rows.sort(key=lambda r: r[1], reverse=True)
-    return _bar_chart("Expected click rate by template (my simulator's own formula)", rows, unit="%")
+    severity_colors = ["var(--danger)", "var(--amber)", "var(--accent)"]
+    return _bar_chart("Expected click rate by template (my simulator's own formula)", rows, unit="%", colors=severity_colors[:len(rows)])
 
 
 def breach_scale_chart() -> str:
@@ -70,7 +79,7 @@ def breach_scale_chart() -> str:
         ("Equifax (2017)", 147, "million people affected"),
         ("Target (2013)", 40, "million card numbers stolen"),
     ]
-    return _bar_chart("Records exposed, in millions (publicly reported figures)", rows, unit="M")
+    return _bar_chart("Records exposed, in millions (publicly reported figures)", rows, unit="M", colors=["var(--blue)", "var(--purple)"])
 
 
 def course_timeline_diagram(timeline: list) -> str:
@@ -78,18 +87,27 @@ def course_timeline_diagram(timeline: list) -> str:
     height = 150
     n = len(timeline)
     step = (width - 80) / (n - 1)
+    progression = ["var(--blue)", "var(--purple)", "var(--accent)"]
     dots = []
     for i, item in enumerate(timeline):
         x = 40 + i * step
+        color = progression[min(i, len(progression) - 1)]
         dots.append(f'''
-          <circle cx="{x}" cy="60" r="7" fill="{"var(--accent)" if i == n - 1 else "var(--text-muted)"}"/>
+          <circle cx="{x}" cy="60" r="7" fill="{color}"/>
           <text x="{x}" y="90" fill="var(--text)" font-size="12" font-weight="700" text-anchor="middle" font-family="var(--font)">{item['grade']}</text>
           <text x="{x}" y="106" fill="var(--text-muted)" font-size="10.5" text-anchor="middle" font-family="var(--font)">{item['year']}</text>
           <foreignObject x="{x - step/2 + 4}" y="118" width="{step - 8}" height="34">
-            <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10.5px;color:var(--text-muted);text-align:center;font-family:var(--font);line-height:1.3;">{item['course']}</div>
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:10.5px;color:{color};text-align:center;font-family:var(--font);line-height:1.3;font-weight:600;">{item['course']}</div>
           </foreignObject>
         ''')
-    line = f'<line x1="40" y1="60" x2="{40 + (n-1)*step}" y2="60" stroke="var(--border)" stroke-width="2"/>'
+    line = f'''<line x1="40" y1="60" x2="{40 + (n-1)*step}" y2="60" stroke="url(#timeline-grad)" stroke-width="2"/>
+      <defs>
+        <linearGradient id="timeline-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="var(--blue)"/>
+          <stop offset="50%" stop-color="var(--purple)"/>
+          <stop offset="100%" stop-color="var(--accent)"/>
+        </linearGradient>
+      </defs>'''
     return f'''<svg viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="My course timeline">
       {line}
       {''.join(dots)}
@@ -99,16 +117,16 @@ def course_timeline_diagram(timeline: list) -> str:
 def cia_triad_diagram() -> str:
     return '''<svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CIA triad diagram">
       <polygon points="250,30 460,290 40,290" fill="none" stroke="var(--border)" stroke-width="2"/>
-      <circle cx="250" cy="70" r="46" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
-      <text x="250" y="65" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="var(--font)">Confidentiality</text>
+      <circle cx="250" cy="70" r="46" fill="var(--blue-soft)" stroke="var(--blue)" stroke-width="2"/>
+      <text x="250" y="65" text-anchor="middle" fill="var(--blue)" font-size="14" font-weight="700" font-family="var(--font)">Confidentiality</text>
       <text x="250" y="82" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="var(--font)">Only the right people see it</text>
 
-      <circle cx="105" cy="255" r="46" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
-      <text x="105" y="250" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="var(--font)">Integrity</text>
+      <circle cx="105" cy="255" r="46" fill="var(--purple-soft)" stroke="var(--purple)" stroke-width="2"/>
+      <text x="105" y="250" text-anchor="middle" fill="var(--purple)" font-size="14" font-weight="700" font-family="var(--font)">Integrity</text>
       <text x="105" y="267" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="var(--font)">Nothing was tampered with</text>
 
-      <circle cx="395" cy="255" r="46" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
-      <text x="395" y="250" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="var(--font)">Availability</text>
+      <circle cx="395" cy="255" r="46" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="2"/>
+      <text x="395" y="250" text-anchor="middle" fill="var(--amber)" font-size="14" font-weight="700" font-family="var(--font)">Availability</text>
       <text x="395" y="267" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="var(--font)">Accessible when needed</text>
     </svg>'''
 
@@ -121,20 +139,20 @@ def network_flow_diagram() -> str:
 
         <path d="M120 80 H180" stroke="var(--border)" stroke-width="2" marker-end="url(#arrow)"/>
 
-        <rect x="180" y="55" width="110" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
-        <text x="235" y="80" text-anchor="middle" fill="var(--accent)">Firewall</text>
+        <rect x="180" y="55" width="110" height="50" rx="8" fill="var(--blue-soft)" stroke="var(--blue)"/>
+        <text x="235" y="80" text-anchor="middle" fill="var(--blue)">Firewall</text>
         <text x="235" y="95" text-anchor="middle" fill="var(--text-muted)" font-size="9.5">allows/blocks by rule</text>
 
         <path d="M290 80 H350" stroke="var(--border)" stroke-width="2" marker-end="url(#arrow)"/>
 
-        <rect x="350" y="55" width="110" height="50" rx="8" fill="var(--bg)" stroke="var(--border)"/>
-        <text x="405" y="80" text-anchor="middle" fill="var(--text)">Router</text>
+        <rect x="350" y="55" width="110" height="50" rx="8" fill="var(--purple-soft)" stroke="var(--purple)"/>
+        <text x="405" y="80" text-anchor="middle" fill="var(--purple)">Router</text>
         <text x="405" y="95" text-anchor="middle" fill="var(--text-muted)" font-size="9.5">DNS lookup happens near here</text>
 
         <path d="M460 80 H520" stroke="var(--border)" stroke-width="2" marker-end="url(#arrow)"/>
 
-        <rect x="520" y="55" width="110" height="50" rx="8" fill="var(--bg)" stroke="var(--border)"/>
-        <text x="575" y="80" text-anchor="middle" fill="var(--text)">Internet</text>
+        <rect x="520" y="55" width="110" height="50" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="575" y="80" text-anchor="middle" fill="var(--accent)">Internet</text>
       </g>
       <defs>
         <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
