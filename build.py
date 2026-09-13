@@ -13,11 +13,12 @@ script only touches the site/ content that shows them off.
 Usage:
     python build.py
 """
+import json
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from data import content
+from data import content, phishing_content
 
 ROOT = Path(__file__).parent
 TEMPLATES_DIR = ROOT / "templates"
@@ -37,6 +38,14 @@ PAGES = [
     ("about.html", "about.html", {}),
     ("password-manager.html", "password-manager.html", {
         "project": next(p for p in content.PROJECTS if p["id"] == "password-manager"),
+    }),
+    ("phishing-simulator.html", "phishing-simulator.html", {
+        "project": next(p for p in content.PROJECTS if p["id"] == "phishing-simulator"),
+        "templates_list": phishing_content.TEMPLATES,
+        "phishing_json": json.dumps({
+            "templates": phishing_content.TEMPLATES,
+            "recipients": phishing_content.RECIPIENTS,
+        }),
     }),
 ]
 

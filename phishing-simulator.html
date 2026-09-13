@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Simulator (Sandbox Demo) | Cybersecurity Lab | Arnav&#39;s Security Projects</title>
+  <meta name="description" content="Learning security by building it: blue team, tool development, and white-hat basics.">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-text">Cybersecurity Lab</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="">Projects</a></li>
+          <li><a href="about.html" class="">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+<section class="section" style="padding-top: 48px;">
+  <div class="container">
+    <a class="back-link" href="index.html">&larr; All projects</a>
+    <div class="section-head">
+      <span class="eyebrow">Offensive Security &amp; Education (White Hat)</span>
+      <h2>🎣 Phishing Simulator (Sandbox Demo)</h2>
+      <p>A fully synthetic demo of a phishing-awareness tool -- fake inbox, fake test recipients, real click-tracking dashboard. No real email is ever sent to a real person by this demo.</p>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>This is a fully synthetic simulation.</strong>
+      <p>
+        No real email is ever sent by this page or by the underlying
+        Python tool. Every "recipient" below is a fictional test
+        persona, not a real person, and every email template is a
+        fictional example (fictional company, fictional domains) that
+        doesn't impersonate any real brand. The click results are a
+        weighted random simulation, computed entirely in your browser.
+      </p>
+      <p>
+        <a href="https://github.com/arnav-deeplearning/arnav-cybersecurity-lab/tree/main/tools/phishing-simulator">
+          Read the full source on GitHub &rarr;
+        </a>
+        &mdash; it has no networking code at all (no smtplib, no
+        requests), so it's structurally incapable of sending a real
+        email to anyone.
+      </p>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-field">
+        <label for="templateSelect">Email template</label>
+        <select id="templateSelect">
+          <option value="password-expiring">URGENT: Your NorthPeak Cloud password expires in 2 hours</option>
+          <option value="ceo-gift-card">Quick favor?</option>
+          <option value="prize-notification">Congratulations! You&#39;ve won a $500 gift card 🎉</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mock-inbox">
+      <div class="mock-inbox-banner">SIMULATION &middot; fictional email, not real</div>
+      <div class="mock-email-header">
+        <div><span class="muted">From:</span> <span id="emailSender"></span></div>
+        <div><span class="muted">Subject:</span> <strong id="emailSubject"></strong></div>
+      </div>
+      <div class="mock-email-body" id="emailBody"></div>
+      <button type="button" class="btn btn-danger" id="emailLinkBtn"></button>
+      <div class="link-preview muted">Link preview (what hovering over it in a real inbox would show): <code id="linkPreview"></code></div>
+    </div>
+
+    <div class="section-head" style="margin-top: 32px;">
+      <h3>Red flags in this email</h3>
+    </div>
+    <ul class="red-flag-list" id="redFlagList"></ul>
+
+    <div class="section-head" style="margin-top: 32px;">
+      <h3>Run a simulated campaign</h3>
+      <p>Sends this template to 7 synthetic test personas and simulates who "clicks," based on published click-rate research by role.</p>
+    </div>
+    <button type="button" class="btn btn-primary" id="runCampaignBtn">Run Simulated Campaign</button>
+
+    <div class="campaign-results" id="campaignResults" style="display:none;">
+      <div class="click-rate-banner" id="clickRateBanner"></div>
+      <div class="persona-list" id="personaList"></div>
+    </div>
+  </div>
+</section>
+
+<script id="phishing-data" type="application/json">{"templates": [{"id": "password-expiring", "subject": "URGENT: Your NorthPeak Cloud password expires in 2 hours", "sender_name": "NorthPeak Cloud IT Support", "sender_address": "it-support@northpeak-cloud-alerts.com", "body": "Dear User,\n\nOur records indicate that your password will expire in 2 HOURS. To avoid losing access to your account, you must verify your identity immediately by clicking the link below.\n\nFailure to act will result in permanent account suspension.\n\nThank you,\nNorthPeak Cloud IT Support Team", "link_text": "Verify My Account Now", "link_preview": "http://northpeak-cloud-alerts.com.secure-verify.ru/login", "red_flags": ["Generic greeting ('Dear User') instead of your actual name.", "Manufactured urgency ('2 HOURS', 'permanent suspension') to short-circuit careful thinking.", "Sender domain (northpeak-cloud-alerts.com) doesn't match the real company's actual domain.", "The link preview shows a completely different domain (.ru) than the sender's own domain -- a classic mismatch.", "Legitimate IT departments almost never threaten immediate account suspension over email."], "difficulty": 0.4}, {"id": "ceo-gift-card", "subject": "Quick favor?", "sender_name": "Alex Rivera (CEO)", "sender_address": "alex.rivera@northpeak-corp-office.com", "body": "Hey,\n\nAre you at your desk? I'm stuck in back-to-back meetings and need a quick favor -- can you pick up a few gift cards for a client thank-you? I'll pay you back today. Let me know and I'll send the details.\n\nThanks,\nAlex", "link_text": "Reply to Alex", "link_preview": "mailto:alex.rivera@northpeak-corp-office.com", "red_flags": ["Impersonates a real executive's name and role to borrow their authority (a technique called 'CEO fraud').", "The sender's actual email domain doesn't match the real company's domain -- always check, don't trust the display name alone.", "Deliberately vague and casual, hoping you won't ask verifying questions before you reply.", "Creates time pressure ('stuck in meetings', 'quick') to discourage picking up the phone to confirm.", "Any request involving gift cards or wire transfers should always be verified through a second channel (call them)."], "difficulty": 0.7}, {"id": "prize-notification", "subject": "Congratulations! You've won a $500 gift card \ud83c\udf89", "sender_name": "Rewards Team", "sender_address": "rewards@totally-real-prizes.net", "body": "You have been randomly selected to receive a $500 gift card! This offer expires soon, so claim your prize before it's given to someone else.\n\nClick below to claim your reward now.", "link_text": "Claim My Prize", "link_preview": "http://totally-real-prizes.net/claim?id=88213", "red_flags": ["You almost never win a contest you never entered.", "'Randomly selected' with no context of what for is a red flag on its own.", "Manufactured scarcity ('before it's given to someone else') is a classic pressure tactic.", "The domain name itself ('totally-real-prizes') is a good reminder that domain names can say anything -- they aren't proof of legitimacy."], "difficulty": 0.15}], "recipients": [{"name": "Jordan P. (test persona)", "role": "New Hire", "susceptibility": 0.7}, {"name": "Priya S. (test persona)", "role": "Marketing", "susceptibility": 0.55}, {"name": "Sam K. (test persona)", "role": "Sales", "susceptibility": 0.5}, {"name": "Morgan T. (test persona)", "role": "Finance", "susceptibility": 0.45}, {"name": "Casey R. (test persona)", "role": "Support", "susceptibility": 0.4}, {"name": "Devon L. (test persona)", "role": "Engineering", "susceptibility": 0.25}, {"name": "Aisha M. (test persona)", "role": "IT / Security", "susceptibility": 0.1}]}</script>
+<script src="static/js/phishing-demo.js"></script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span class="muted">A learning project by Arnav Saravanakumar.</span>
+      <span class="muted">
+        Also see:
+        <a href="https://arnav-deeplearning.github.io/">Taekwondo x AI</a> &middot;
+        <a href="https://arnav-deeplearning.github.io/arnav-ai-projects/">AI Arena</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

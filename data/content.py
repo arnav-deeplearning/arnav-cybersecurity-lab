@@ -96,7 +96,8 @@ PROJECTS = [
         "title": "Phishing Simulator (Sandbox Demo)",
         "category": "white-hat",
         "icon": "\U0001F3A3",
-        "status": "coming-soon",
+        "status": "live",
+        "href": "phishing-simulator.html",
         "description": (
             "A fully synthetic demo of a phishing-awareness tool -- "
             "fake inbox, fake test recipients, real click-tracking "

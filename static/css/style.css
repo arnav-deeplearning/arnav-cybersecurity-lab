@@ -12,6 +12,8 @@
   --status-live: #2dd881;
   --status-coming-soon: #8b93a7;
   --status-hands-on: #f0b429;
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.14);
 
   --radius: 14px;
   --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
@@ -185,7 +187,120 @@ a.card:hover { transform: translateY(-2px); background: var(--bg-card-hover); bo
 
 .demo-result { font-size: 0.9rem; min-height: 1.2em; }
 .demo-result.is-success { color: var(--status-live); }
-.demo-result.is-error { color: #f87171; }
+.demo-result.is-error { color: var(--danger); }
+
+/* ---------- Disclaimer box ---------- */
+.disclaimer-box {
+  background: var(--danger-soft);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 28px;
+}
+.disclaimer-box strong { color: var(--danger); }
+.disclaimer-box p { margin: 8px 0 0; color: var(--text); font-size: 0.92rem; }
+.disclaimer-box code {
+  background: var(--bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* ---------- Filter bar ---------- */
+.filter-bar { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+.filter-field { display: flex; flex-direction: column; gap: 6px; }
+.filter-field label { font-size: 0.85rem; color: var(--text-muted); }
+.filter-field select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 0.9rem;
+  min-width: 320px;
+}
+
+/* ---------- Mock inbox ---------- */
+.mock-inbox {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+  max-width: 640px;
+}
+.mock-inbox-banner {
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 6px;
+}
+.mock-email-header {
+  padding: 16px 20px 0;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mock-email-body {
+  padding: 16px 20px;
+  white-space: pre-line;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.link-preview { padding: 0 20px 18px; font-size: 0.78rem; }
+.link-preview code { word-break: break-all; }
+
+.btn-danger {
+  margin: 0 20px 12px;
+  background: var(--danger-soft);
+  color: var(--danger);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-danger:hover { background: rgba(248, 113, 113, 0.24); }
+
+/* ---------- Red flags + campaign results ---------- */
+.red-flag-list { padding-left: 20px; color: var(--text); }
+.red-flag-list li { margin-bottom: 8px; font-size: 0.92rem; }
+
+.campaign-results { margin-top: 20px; max-width: 640px; }
+.click-rate-banner {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+.persona-list { display: flex; flex-direction: column; gap: 6px; }
+.persona-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+}
+.persona-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--status-coming-soon);
+  flex-shrink: 0;
+}
+.persona-row.is-clicked .persona-dot { background: var(--danger); }
+.persona-name { flex: 1; }
+.persona-outcome { font-weight: 600; color: var(--text-muted); }
+.persona-row.is-clicked .persona-outcome { color: var(--danger); }
 
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--border); margin-top: 60px; padding: 24px 0 60px; }
